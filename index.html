@@ -723,12 +723,21 @@ document.querySelectorAll(".Data").forEach(fruta =>{
 </script>
 
 <script>
+    if (window.self !== window.top) {
+    // La página está en un iframe
+    // Aquí puedes ejecutar la acción que desees
+    audio.play();
+} else {
+    // La página no está en un iframe
+    audio.pause();
+    }
+    
   toggle.addEventListener('click', function() {
      if(document.body.style.background == 'var(--bg)') {
-    audio.pause();     document.body.style.background = 'black';
+    audio.play();     document.body.style.background = 'black';
      } else {
          document.body.style.background = 'var(--bg)';
-     audio.play(); 
+     audio.pause(); 
      }  
   });
 </script>
