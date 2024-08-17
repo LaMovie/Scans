@@ -725,10 +725,10 @@ document.querySelectorAll(".Data").forEach(fruta =>{
 <script>
   toggle.addEventListener('click', function() {
      if(document.body.style.background == 'var(--bg)') {
-    audio.play();     document.body.style.background = 'black';
+    audio.pause();     document.body.style.background = 'black';
      } else {
          document.body.style.background = 'var(--bg)';
-     audio.pause(); 
+     audio.play(); 
      }  
   });
 </script>
