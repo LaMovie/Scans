@@ -726,10 +726,10 @@ document.querySelectorAll(".Data").forEach(fruta =>{
     if (window.self !== window.top) {
     // La página está en un iframe
     // Aquí puedes ejecutar la acción que desees
-    audio.play();
+    audio.pause();
 } else {
     // La página no está en un iframe
-    audio.pause();
+    audio.play();
     }
     
   toggle.addEventListener('click', function() {
