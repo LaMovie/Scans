@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editor de Código</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Incluir Monaco Editor desde CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.33.0/min/vs/loader.min.js"></script>
+<style>
+body {
+    margin: 20px;
+    background: #fff;
+    font-family: Arial, sans-serif;
+}
+h1 {
+    text-align: center;
+}
+#Editor {
+    margin: -5vh -5vh;
+    width: 128%;
+    height: 105vh;
+}
+#But {
+    bottom: 12vh;
+    right: 8vh;
+    scale: 95%;
+    color: #fff;
+    width: 10vh;
+    height: 10vh;
+    z-index: 9999;
+    position: fixed;
+    font-size: 25px;
+    margin: 20px auto;
+    background: blue;
+    border-radius: 50%;
+}
+</style>
+</head>
+<body>
+<div id="All">
+    <div id="Editor"></div>
+</div>
+    <button id="But" onclick="toggleView()">🌐</button>
+    <div id="body"></div>
+
+<script>
+require.config({ paths: { 'vs': 'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.33.0/min/vs' }});
+require(['vs/editor/editor.main'], function() {
+    var Editor = monaco.editor.create(document.getElementById('Editor'), {
+        value: [
+        '',
+            '<!DOCTYPE html>',
+            '<html lang="es">',
+            '<head>',
+            '    <meta charset="UTF-8">',
+            '    <meta name="viewport" content="width=device-width, initial-scale=1.0">',
+            '    <title>Documento</title>',
+            '</head>',
+            '<body>',
+            '    <h1>Hola, Mundo!</h1>',
+            '</body>',
+            '</html>'
+        ].join('\n'),
+        language: 'html',
+        theme: 'vs-dark'
+});
+
+    function executeCode() {
+body.innerHTML = Editor.getValue();
+
+ <!-- Buscar y ejecutar scripts -->
+        var scripts = body.getElementsByTagName('script');
+        for (var i = 0; i < scripts.length; i++) {
+            var newScript = document.createElement('script');
+            newScript.textContent = scripts[i].textContent;
+            document.body.appendChild(newScript);
+  }
+        localStorage.setItem('Editor', Editor.getValue());
+ }
+    Editor.onDidChangeModelContent(function() {
+        executeCode();
+});
+
+  window.toggleView = function() {
+ if (All.style.display == 'none') {
+     All.style.display = 'block';
+     body.style.display = 'none';
+        } else {
+     All.style.display = 'none';
+     body.style.display = 'block';
+   }
+  }
+
+    var codigoGuardado = localStorage.getItem('Editor');
+    if (codigoGuardado) {
+        Editor.setValue(codigoGuardado);
+        executeCode();
+    }
+});
+</script>
+</body>
+</html>
+
+
+
+
