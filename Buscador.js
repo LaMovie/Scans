@@ -36,7 +36,7 @@ document.addEventListener("keyup", e=>{
      Pantalla.src = URL + PRE;
         buscador.value = '';          
     Lista.style.display = 'none';
-         audio.pause();
+         Audio.pause();
           } else {
     window.location.href = matchedItem.href;
     buscador.value = '';
@@ -45,7 +45,6 @@ document.addEventListener("keyup", e=>{
       buscador.value = '';
       Lista.style.display = 'none';
       No.style.display = "none";
-      audio.play();
     }
   }
 });
