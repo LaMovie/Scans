@@ -36,7 +36,7 @@ document.addEventListener("keyup", e=>{
      Pantalla.src = URL + PRE;
         buscador.value = '';          
     Lista.style.display = 'none';
-         Audio.pause();
+         audio.pause();
           } else {
     window.location.href = matchedItem.href;
     buscador.value = '';
