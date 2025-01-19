@@ -35,6 +35,7 @@ document.addEventListener("keyup", e=>{
         var PRE = 'preview';
      Pantalla.src = URL + PRE;
         buscador.value = '';
+       Audio.pause();
     Lista.style.display = 'none';
           } else {
     window.location.href = matchedItem.href;
