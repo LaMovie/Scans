@@ -66,6 +66,18 @@ Pantalla.style.background = 'black';
   `
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+body {
+      background: #000;
+      position: fixed;      
+}
+#Aux {
+      margin: 10vh;
+}   
+#Pantalla {
+    margin: 3vh;
+    border-radius: 20px; 
+    background: url(https://bit.ly/49X0ijf);
+}
 section {
     width: 55%;
     height: 7vh;
@@ -183,7 +195,38 @@ h1 {
       No.style.color = '#fff';   
      
      
-     
+  var Lista = document.getElementById('Lista');
+ var CANALES = ['.m3u8', 'bit.ly', 'stream', 'is.gd'];  
+ 
+Lista.addEventListener('click', (event) => {
+ if (event.target.tagName === 'A') {
+    event.preventDefault(); 
+  var ENLACE = event.target.href;
+  
+  if (ENLACE.includes('file')) {
+  var URL = ENLACE.split('view?usp')[0];
+       var PRE = 'preview';
+     Pantalla.src = URL + PRE; 
+     buscador.value = '';          
+    Lista.style.display = 'none';
+    buscador.placeholder = event.target.textContent;
+buscador.classList.add('PlaceHolder');
+          audio.pause();
+Pantalla.style.background = 'black';
+            } else if (CANALES.some(item => ENLACE.includes(item))) {
+       Pantalla.src = ENLACE; 
+       buscador.value = '';          
+    Lista.style.display = 'none';
+    buscador.placeholder = event.target.textContent;  
+buscador.classList.add('PlaceHolder');     
+          audio.pause();
+Pantalla.style.background = 'black';
+            } else {
+   window.location.href = ENLACE;
+          audio.pause();
+    } 
+  }
+});   
      
      
      
