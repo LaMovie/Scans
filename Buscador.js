@@ -196,7 +196,7 @@ h1 {
      
      
   var Lista = document.getElementById('Lista');
- var CANALES = ['.m3u8', 'bit.ly', 'stream', 'is.gd'];  
+ var CANALES = ['.m3u8', 'bit.ly', 'stream', 'is.gd', 'yout-ube'];  
  
 Lista.addEventListener('click', (event) => {
  if (event.target.tagName === 'A') {
