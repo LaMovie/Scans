@@ -113,7 +113,7 @@ input {
     color: #fff;
     text-align: center;
     background: #000;
-    height: 60vh;
+    height: 40vh;
     overflow: scroll;
     border-radius: 20px;
 }
