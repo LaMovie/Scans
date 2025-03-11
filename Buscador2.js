@@ -234,7 +234,7 @@ var Lista2 = [
 { name: "🍿The Skeleton Key", url: "https://drive.google.com/file/d/1Ju_1b_FnDTIHf-FlXGGB2NydRdcEyTvD/view?usp=drive_link" },
 { name: "🍿The Gentlemens", url: "https://drive.google.com/file/d/1rpQOIKmizYLLt2zpg_yxlQ87EJxM4McV/view?usp=drive_link" },
 { name: "🍿Maligno", url: "https://drive.google.com/file/d/1J_QXOeCBTdR6oklV_4Mj0xrJGBhTKaVq/view?usp=drive_link" },
-{ name: "🍿Ghosts", url: "https://drive.google.com/drive/folders/1cGFgWZiyO7h6psxppOJ1_rKmjmsVflG9?usp=drive_link" },
+{ name: "🍿Ghosts", url: "https://drive.google.com/drive/folders/1--zY-EDd-hEMXABqGu04OguwquiZeAlV" },
 { name: "🍿Marianne", url: "https://drive.google.com/drive/folders/1cAcwzT70xX6M--ZHZAuL37o9EVXk0Xr8?usp=drive_link" },
 { name: "🍿Merlina Addams", url: "https://drive.google.com/drive/folders/1ZkWRZfmVkzaUWAlhJa1ZMfpeK2ymxou8?usp=drive_link" },
 { name: "🍿The Bastard Son Of Devil", url: "https://drive.google.com/drive/folders/1cH0AN9kGdHLcwl2A_QPRcmU2PRpjdtDt?usp=drive_link" },
