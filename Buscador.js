@@ -161,8 +161,7 @@ h1 {
   <li><a href="https://drive.google.com/file/d/1OHtD9EJsNpzq9f3enjUwNobqWAZrGzRm/view?usp=drivesdk" class="Data">🍿Nosferatu</a></li>
   <li><a href="https://drive.google.com/file/d/1noIE34Zh0QDTfJAzTD9bzyG_6dMVyxj0/view?usp=drivesdk" class="Data">🍿Kraven</a></li>
   <li><a href="https://drive.google.com/file/d/1bsZ10vfq5xNuV-qbQy6_6sc4QN_bEvLw/view?usp=drivesdk" class="Data">🍿Compañera Perfecta</a></li>
-  <li><a href="" class="Data">🍿</a></li>
-  <li><a href="" class="Data">🍿</a></li>
+  <li><a href="https://drive.google.com/drive/folders/1ahKbN0K3IdhEIWs9p1xbvfxalSECTQrh" class="Data">🍿Desencanto 5</a></li>
   <li><a href="" class="Data">🍿</a></li>
   <li><a href="" class="Data">🍿</a></li>
   <li><a href="" class="Data">🍿</a></li>
@@ -197,7 +196,7 @@ h1 {
      
      
   var Lista = document.getElementById('Lista');
- var CANALES = ['.m3u8', 'bit.ly', 'stream', 'is.gd', 'yout-ube'];  
+ var CANALES = ['.m3u8', 'bit.ly', 'stream', 'is.gd'];  
  
 Lista.addEventListener('click', (event) => {
  if (event.target.tagName === 'A') {
