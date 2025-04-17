@@ -1,8 +1,5 @@
 var Lista2 = [
   { name: "📺Aida Tv", url: "https://lamovie.github.io/AIDA-TV/" },
-  { name: "📺Flow Tv", url: "https://bit.ly/3vueUqF" },
-  { name: "📺Ritmos Tv", url: "https://bit.ly/3unJf9W" },
-  { name: "📺Pop Tv", url: "https://bit.ly/3R5TwQT" },
   { name: "📺South Park Tv", url: "https://pluto.tv/es/live-tv/south-park-pvt2/details" },
   { name: "📺Bum Tv", url: "https://movil.ejeserver.com/live/visiondorada.m3u8" },
   { name: "📺Lilo y Stitch Tv", url: "https://cloudvideo.servers10.com:8081/impactotv/index.m3u8" },

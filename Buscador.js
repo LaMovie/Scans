@@ -76,7 +76,10 @@ body {
 #Pantalla {
     margin: 3vh;
     border-radius: 20px; 
-    background: url(https://bit.ly/49X0ijf);
+    background: url(https://is.gd/L4PVt2);
+    /*https://bit.ly/49X0ijf*/
+    background-size: cover;
+    background-position: center;
 }
 section {
     width: 55%;
