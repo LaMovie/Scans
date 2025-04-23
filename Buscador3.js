@@ -1,7 +1,7 @@
 var Lista3 = [
   { NAME: "🍿LA CASA DE PAPEL", URL: "https://h5.swplayer.com/es/detail/drama/w4T1wpuJxUu5b0bHfQnU5-Money-Heist-Season-1" },
   { NAME: "🍿JUEGO DE TRONOS", URL: "https://h5.swplayer.com/es/detail/drama/uf5jenYNRHVO6dKZpo3JY-Game-of-Thrones-Season-1/1" },
-  { NAME: "🍿ONE PIECE", URL: "https://h5.swplayer.com/es/detail/drama/nOFADuVbhbWgsKCJbMGbK-One-Piece%5BRU-Audio%5D" }, 
+  { NAME: "🍿ONE PIECE", URL: "https://h5.swplayer.com/es/detail/drama/vdXAbbyiZgaslQlAZ9Z6H-One-Piece" }, 
   { NAME: "🍿VIS A VIS", URL: "https://h5.swplayer.com/es/detail/drama/br2opIQsBK8hepOpdQEDI-Vis-a-vis-Season-1" },
   { NAME: "🍿VIKINGOS", URL: "https://h5.swplayer.com/es/detail/drama/3TVD1tXGJbNUvPc0u3mP8-Vikings-Season-1/1" },
   { NAME: "🍿FAMILY GUY", URL: "https://h5.swplayer.com/es/detail/drama/QTUVOLeIYWjsO8Fv2PcxM-Family-Guy-Season-1" }, 
