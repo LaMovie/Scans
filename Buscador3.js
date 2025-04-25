@@ -5,7 +5,7 @@ var Lista3 = [
   { NAME: "🍿VIS A VIS", URL: "https://h5.swplayer.com/es/detail/drama/br2opIQsBK8hepOpdQEDI-Vis-a-vis-Season-1" },
   { NAME: "🍿VIKINGOS", URL: "https://h5.swplayer.com/es/detail/drama/3TVD1tXGJbNUvPc0u3mP8-Vikings-Season-1/1" },
   { NAME: "🍿FAMILY GUY", URL: "https://h5.swplayer.com/es/detail/drama/QTUVOLeIYWjsO8Fv2PcxM-Family-Guy-Season-1" }, 
-  { NAME: "🍿BRICKLEBERRY FULL", URL: "https://h5.swplayer.com/es/detail/drama/tNN9IaUvc8Xqek2jHt2Ek-Brickleberry-Season-1" },
+  { NAME: "🍿NARUTO", URL: "https://h5.swplayer.com/es/detail/drama/GGCScosEDKZxW5ejPWH9n-Naruto%5BAudio-Latino%5D" },
   { NAME: "🍿LOS SIMPSONS", URL: "https://h5.swplayer.com/es/detail/drama/MNxoJpARCrPHvVPu1ljH1-The-Simpsons-Season-1" }, 
   { NAME: "🍿OUTLANDER", URL: "https://h5.swplayer.com/es/detail/drama/SC5e4d5u7ZQBPnkhz675G-Outlander-Season-1/1" },
   { NAME: "🍿THE WALKING DEAD", URL: "https://h5.swplayer.com/es/detail/drama/Gr410ksu2cfhFfQP75H9j-The-Walking-Dead-Season-1" }, 
