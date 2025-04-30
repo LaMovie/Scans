@@ -21,7 +21,7 @@ document.addEventListener("keyup", e=>{
       
  
   Data.forEach(item => {
-     let itemText = Tildes(item.textContent.toLowerCase(), incluyeÑ);   
+    let itemText = Tildes(item.textContent.toLowerCase(), incluyeÑ);    
         if (itemText.includes(Input)) {
           item.classList.remove("filtro");
           foundMatch = true;
@@ -150,7 +150,7 @@ a {
 #No {
     scale: 80%;
     display: none;
-    position: fixed:
+    position: fixed;
 }
 </style>
 
@@ -280,6 +280,147 @@ document.addEventListener('fullscreenchange', function() {
     }
   }
 });
+
+
+        <!-- HORIZONTAL -->
+
+        function Handle() {
+            var orientation = (window.innerWidth > window.innerHeight) ? evento() : invento();        
+}
+
+        function evento() {
+    var style = document.createElement('style');
+   style.innerHTML = `
+<style>
+#Aux {
+      margin: 10vh;
+}   
+#Pantalla {
+    scale: 190%;
+    transform: translate(20vh, 10vh);
+    margin: 3vh;
+    border-radius: 20px; 
+    background: url(https://is.gd/L4PVt2);
+    /*https://bit.ly/49X0ijf*/
+    background-size: cover;
+    background-position: center;
+}
+section {
+    top: 20vh;
+    right: -10vh;
+    width: 55%;
+    height: 7vh;
+    display: flex;
+    position: fixed;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+input {    
+    color: #fff;
+    width: 100%;
+    padding: 10px;
+    outline: none;
+    font-weight: 600;
+    border-radius: 20px;
+    background: transparent;
+    border: 2px solid gray;   
+}
+.PlaceHolder::placeholder {
+    color: blue;
+    opacity: .7;
+}
+#Lista {
+    scale: 90%;
+    left: 40vh;
+    position: fixed;
+    display: none;
+    font-size: 30px;
+    margin-top: 20px;
+    list-style: none;
+    font-weight: 600;
+    color: #fff;
+    text-align: center;
+    background: #000;
+    height: 50vh;
+    overflow: scroll;
+    border-radius: 20px;
+    transform: translate(140vh, 10vh);
+}
+</style>     
+`;        document.head.appendChild(style);
+} 
+
+       function invento() {
+   var style = document.createElement('style');
+   style.innerHTML = `
+<style>
+#Aux {
+      margin: 10vh;
+}   
+#Pantalla {
+    scale: 100%;
+    transform: translate(0vh, 0vh);
+    margin: 3vh;
+    border-radius: 20px; 
+    background: url(https://is.gd/L4PVt2);
+    /*https://bit.ly/49X0ijf*/
+    background-size: cover;
+    background-position: center;
+}
+section {
+    top: 50vh;
+    right: 15vh;
+    width: 55%;
+    height: 7vh;
+    display: flex;
+    position: fixed;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+input {    
+    color: #fff;
+    width: 100%;
+    padding: 10px;
+    outline: none;
+    font-weight: 600;
+    border-radius: 20px;
+    background: transparent;
+    border: 2px solid gray;   
+}
+.PlaceHolder::placeholder {
+    color: blue;
+    opacity: .7;
+}
+#Lista {
+    scale: 90%;
+    left: -3vh;
+    position: fixed;
+    display: none;
+    font-size: 30px;
+    margin-top: 20px;
+    list-style: none;
+    font-weight: 600;
+    color: #fff;
+    text-align: center;
+    background: #000;
+    height: 40vh;
+    overflow: scroll;
+    border-radius: 20px;
+    transform: translate(0vh, 0vh);
+}
+</style>   
+`;        document.head.appendChild(style);
+}
+
+ window.addEventListener("resize", Handle);
+
+  <!-- Llama a la función al cargar la página para establecer el estado inicial -->
+      Handle();
+
+
+
      
      
      
