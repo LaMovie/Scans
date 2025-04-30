@@ -149,7 +149,7 @@ a {
 }
 #No {
     top: 56vh;
-    right: 50vh;
+    right: 25vh;
     scale: 80%;
     display: none;
     position: fixed;
@@ -355,8 +355,8 @@ input {
     display: none;
 }
 #No {
-    top: 10vh;
-    right: 10vh;
+    top: 0vh;
+    right: 25vh;
     scale: 80%;
     display: none;
     position: fixed;
@@ -427,7 +427,7 @@ input {
 }
 #No {
     top: 56vh;
-    right: 50vh;
+    right: 25vh;
     scale: 80%;
     display: none;
     position: fixed;
