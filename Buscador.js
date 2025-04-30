@@ -148,7 +148,7 @@ a {
  }
 }
 #No {
-    top: 27vh;
+    top: 47vh;
     scale: 80%;
     display: none;
     position: fixed;
@@ -353,6 +353,12 @@ input {
 #Lista::-webkit-scrollbar {
     display: none;
 }
+#No {
+    top: 10vh;
+    scale: 80%;
+    display: none;
+    position: fixed;
+}
 </style>     
 `;        document.head.appendChild(style);
 } 
@@ -416,6 +422,12 @@ input {
     overflow: scroll;
     border-radius: 20px;
     transform: translate(0vh, 0vh);
+}
+#No {
+    top: 47vh;
+    scale: 80%;
+    display: none;
+    position: fixed;
 }
 </style>   
 `;        document.head.appendChild(style);
