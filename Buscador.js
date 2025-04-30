@@ -306,7 +306,6 @@ document.addEventListener('fullscreenchange', function() {
     background-position: center;
 }
 section {
-    scale: 120%;
     top: 20vh;
     right: -10vh;
     width: 55%;
@@ -318,6 +317,7 @@ section {
     align-items: center;
 }
 input {    
+    scale: 120%;
     color: #fff;
     width: 100%;
     padding: 10px;
@@ -374,7 +374,6 @@ input {
     background-position: center;
 }
 section {
-    scale: 100%;
     top: 50vh;
     right: 15vh;
     width: 55%;
@@ -386,6 +385,7 @@ section {
     align-items: center;
 }
 input {    
+    scale: 100%;
     color: #fff;
     width: 100%;
     padding: 10px;
