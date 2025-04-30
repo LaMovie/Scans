@@ -343,10 +343,13 @@ input {
     text-align: center;
     background: #000;
     height: 50vh;
-    overflow: auto;
+    overflow: scroll;
     scrollbar: none;
     border-radius: 20px;
     transform: translate(140vh, 10vh);
+}
+#Lista::-webkit-scrollbar {
+    display: none;
 }
 </style>     
 `;        document.head.appendChild(style);
