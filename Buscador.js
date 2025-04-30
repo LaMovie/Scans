@@ -148,7 +148,7 @@ a {
  }
 }
 #No {
-    top: 47vh;
+    top: 56vh;
     scale: 80%;
     display: none;
     position: fixed;
@@ -424,7 +424,7 @@ input {
     transform: translate(0vh, 0vh);
 }
 #No {
-    top: 47vh;
+    top: 56vh;
     scale: 80%;
     display: none;
     position: fixed;
