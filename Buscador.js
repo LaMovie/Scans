@@ -148,7 +148,7 @@ a {
  }
 }
 #No {
-    top: 7vh;
+    top: 27vh;
     scale: 80%;
     display: none;
     position: fixed;
