@@ -148,6 +148,7 @@ a {
  }
 }
 #No {
+    top: 7vh;
     scale: 80%;
     display: none;
     position: fixed;
@@ -375,7 +376,7 @@ input {
 }
 section {
     top: 50vh;
-    right: 15vh;
+    right: 10vh;
     width: 55%;
     height: 7vh;
     display: flex;
