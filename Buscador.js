@@ -376,7 +376,7 @@ input {
 }
 section {
     top: 50vh;
-    right: 10vh;
+    right: 13vh;
     width: 55%;
     height: 7vh;
     display: flex;
