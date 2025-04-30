@@ -343,7 +343,7 @@ input {
     text-align: center;
     background: #000;
     height: 50vh;
-    overflow: scroll;
+    overflow: hidden;
     border-radius: 20px;
     transform: translate(140vh, 10vh);
 }
