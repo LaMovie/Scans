@@ -1,14 +1,19 @@
 document.addEventListener("keyup", e=>{
  
-        <!-- TILDES -->
-  function Tildes(texto) {
-       return texto.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
-};  
-     
+     // TILDES
+  function Tildes(texto, preservarÑ = false) {
+    let limpio = texto.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+    if (!preservarÑ) {
+      limpio = limpio.replace(/ñ/g, "n");
+    }
+    return limpio;
+  };
+  
       var In = e.target.value.toLowerCase().trim();
+      var incluyeÑ = In.includes("ñ");
       var Data = document.querySelectorAll(".Data");
       let foundMatch = false;
-      var Input = Tildes(In.replace(/\s+/g, ' '));
+      var Input = Tildes(In.replace(/\s+/g, ' '), incluyeÑ);
  
   if (e.target.matches("#buscador")){          
    
@@ -16,7 +21,8 @@ document.addEventListener("keyup", e=>{
       
  
   Data.forEach(item => {
-        if (item.textContent.toLowerCase().includes(Input)) {
+     let itemText = Tildes(item.textContent.toLowerCase(), incluyeÑ);   
+        if (itemText.includes(Input)) {
           item.classList.remove("filtro");
           foundMatch = true;
         } else {
@@ -30,10 +36,11 @@ document.addEventListener("keyup", e=>{
   
     if (e.key === "Enter") {
       var Int = e.target.value.toLowerCase().trim();
-      var inputValue = Tildes(Int.replace(/\s+/g, ' '));
+      var incluyeÑ = Int.includes("ñ");
+      var inputValue = Tildes(Int.replace(/\s+/g, ' '), incluyeÑ);
       var matchedItem = [...document.querySelectorAll(".Data")].find(
-        item => item.textContent.toLowerCase() === inputValue
-      );
+        item => Tildes(item.textContent.toLowerCase(), incluyeÑ) === inputValue
+    );
              
       if (matchedItem) {
       var ENLACE = matchedItem.getAttribute("href");
@@ -166,7 +173,7 @@ h1 {
            <br/><br/>
          <ul id="Lista">
   <li><a href="https://drive.google.com/file/d/1EhJMQdYh_gIpk_miJOW6QHBH-e3XSDCr/view?usp=drivesdk" class="Data">🍿Heretic</a></li>
-  <li><a href="https://drive.google.com/file/d/1vB26ttiNlde0NKHoA6937WfswdKZVDQ3/view?usp=drivesdk" class="Data">🍿Red One</a></li>
+  <li><a href="https://drive.google.com/file/d/1E1AprgH-FruccueU-9HSwcZ0_pPAxFbC/view?usp=drivesdk" class="Data">🍿Red One</a></li>
   <li><a href="https://drive.google.com/file/d/1a674Ccso4wS99zKICv6e83qWdtR8qVS3/view?usp=drivesdk" class="Data">🍿57 Segundos</a></li>
   <li><a href="https://drive.google.com/file/d/1OHtD9EJsNpzq9f3enjUwNobqWAZrGzRm/view?usp=drivesdk" class="Data">🍿Nosferatu</a></li>
   <li><a href="https://drive.google.com/file/d/1noIE34Zh0QDTfJAzTD9bzyG_6dMVyxj0/view?usp=drivesdk" class="Data">🍿Kraven</a></li>
@@ -274,8 +281,5 @@ document.addEventListener('fullscreenchange', function() {
   }
 });
      
-  
-           
-  
      
      
