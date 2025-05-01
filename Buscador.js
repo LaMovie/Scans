@@ -355,7 +355,7 @@ input {
     display: none;
 }
 #No {
-    top: -10vh;
+    top: -20vh;
     right: 25vh;
     scale: 80%;
     display: none;
