@@ -335,7 +335,7 @@ input {
 }
 #Lista {
     scale: 90%;
-    left: 30vh;
+    left: 50vh;
     position: fixed;
     display: none;
     font-size: 30px;
@@ -355,7 +355,7 @@ input {
     display: none;
 }
 #No {
-    top: -20vh;
+    top: -50vh;
     right: 25vh;
     scale: 80%;
     display: none;
