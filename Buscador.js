@@ -299,7 +299,7 @@ document.addEventListener('fullscreenchange', function() {
 }   
 #Pantalla {
     scale: 190%;
-    transform: translate(20vh, 10vh);
+    transform: translate(15vh, 10vh);
     margin: 3vh;
     border-radius: 20px; 
     background: url(https://is.gd/L4PVt2);
