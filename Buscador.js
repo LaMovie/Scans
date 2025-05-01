@@ -335,7 +335,7 @@ input {
 }
 #Lista {
     scale: 90%;
-    left: 5vh;
+    left: 10vh;
     position: fixed;
     display: none;
     font-size: 30px;
@@ -349,17 +349,18 @@ input {
     overflow: scroll;
     scrollbar: none;
     border-radius: 20px;
-    transform: translate(140vh, 10vh);
+    transform: translate(120vh, 10vh);
 }
 #Lista::-webkit-scrollbar {
     display: none;
 }
 #No {
-    top: -50vh;
+    top: 0vh;
     right: 25vh;
     scale: 80%;
     display: none;
     position: fixed;
+    transform: translate(10vh, 10vh);
 }
 </style>     
 `;        document.head.appendChild(style);
