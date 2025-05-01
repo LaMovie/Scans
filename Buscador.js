@@ -349,7 +349,7 @@ input {
     overflow: scroll;
     scrollbar: none;
     border-radius: 20px;
-    transform: translate(120vh, 10vh);
+    transform: translate(130vh, 10vh);
 }
 #Lista::-webkit-scrollbar {
     display: none;
@@ -360,7 +360,7 @@ input {
     scale: 80%;
     display: none;
     position: fixed;
-    transform: translate(10vh, 10vh);
+    transform: translate(5vh, -20vh);
 }
 </style>     
 `;        document.head.appendChild(style);
@@ -432,6 +432,7 @@ input {
     scale: 80%;
     display: none;
     position: fixed;
+    transform: translate(0vh, 0vh);
 }
 </style>   
 `;        document.head.appendChild(style);
