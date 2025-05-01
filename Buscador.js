@@ -360,7 +360,7 @@ input {
     scale: 80%;
     display: none;
     position: fixed;
-    transform: translate(5vh, -20vh);
+    transform: translate(0vh, -30vh);
 }
 </style>     
 `;        document.head.appendChild(style);
