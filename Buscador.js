@@ -335,7 +335,7 @@ input {
 }
 #Lista {
     scale: 90%;
-    left: 50vh;
+    left: 20vh;
     position: fixed;
     display: none;
     font-size: 30px;
