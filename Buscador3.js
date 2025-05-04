@@ -11,7 +11,7 @@ var Lista3 = [
   { NAME: "🍿THE WALKING DEAD", URL: "https://h5.swplayer.com/es/detail/drama/Gr410ksu2cfhFfQP75H9j-The-Walking-Dead-Season-1" }, 
   { NAME: "🍿EVIL", URL: "https://h5.swplayer.com/es/detail/drama/ddsgdunU4e2xi7R5NT3K4-Evil-Season-1" },
   { NAME: "🍿THE LAST OF US", URL: "https://h5.swplayer.com/es/detail/drama/rvYsv23lPziLIw5oz2KjV-The-Last-of-Us-Season-1%5BAudio-Latino%5D/1" },
-  { NAME: "🍿", URL: "" }, 
+  { NAME: "🍿MY HERO ACADEMIA", URL: "https://h5.swplayer.com/detail/drama/C1lUW7UsRxfbGSHuD2Vax-My-Hero-Academia%5BAudio-Latino%5D/1" }, 
   { NAME: "🍿", URL: "" },
   { NAME: "🍿", URL: "" }, 
   { NAME: "🍿", URL: "" },
