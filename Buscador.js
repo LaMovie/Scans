@@ -274,11 +274,12 @@ document.addEventListener('fullscreenchange', function() {
     <!-- Si estamos en pantalla completa, bloquear orientación horizontal -->
     if (screen.orientation && screen.orientation.lock) {
       screen.orientation.lock('landscape');
+  Pantalla.style.scale = '100%';
     }
   } else {
     <!-- Si salimos de pantalla completa, volver a orientación vertical -->
     if (screen.orientation && screen.orientation.lock) {
-      screen.orientation.lock('portrait');
+      screen.orientation.lock('portrait');  
     }
   }
 });
