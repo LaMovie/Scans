@@ -7,6 +7,8 @@ var Lista2 = [
   { name: "📺Vevo R&B Tv", url: "https://is.gd/FLLYMV"}, 
   { name: "📺4Fun Tv", url: "https://stream.4fun.tv:8888/hls/4f.m3u8"}, 
   { name: "📺Bob Esponja Tv", url: "https://is.gd/O95aRO"}, 
+  { name: "📺Animes Tv", url: "https://is.gd/2nVBaq"}, 
+  { name: "📺Anime Classic Tv", url: "https://is.gd/ZbUCIE"}, 
   { name: "📺Cine Terror Tv", url: "https://is.gd/GyYDz0"}, 
   { name: "📺Vevo 90s Tv", url: "https://is.gd/qONOfE"}, 
   { name: "📺Series Tv", url: "https://is.gd/tit1cW"}, 
