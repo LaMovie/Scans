@@ -205,6 +205,12 @@ h1 {
   <li><a href="https://drive.google.com/drive/folders/19qbosVBk8M-oilltDOekqKZSz3V3h4O3" class="Data">🍿Love Death And Robot 4</a></li>
   <li><a href="https://drive.google.com/file/d/1kl9SdVn28M4suPbuoh5icbGNPfj7iwLg/view?usp=drivesdk" class="Data">🍿Thunderbolts</a></li>
   <li><a href="https://drive.google.com/file/d/1FulxfbvFkUYZELifyw7tJ0875ZWr81dF/view?usp=drivesdk" class="Data">🍿Destino Final 6</a></li>
+  <li><a href="https://drive.google.com/file/d/1vdK-Wqyu8U0cAIc_18IDd2xp51sq0nIU/view?usp=drivesdk" class="Data">🍿Un Espía Y Medio</a></li>
+  <li><a href="https://drive.google.com/file/d/1YTEdyhuColPWf_rBgz_y6YN2hspO_Hug/view?usp=drivesdk" class="Data">🍿Deadpool 1</a></li>
+  <li><a href="https://drive.google.com/file/d/1KuueM77d_EF1j3tE47KRSgBeGaiS1qUE/view?usp=drivesdk" class="Data">🍿Deadpool 2</a></li>
+  <li><a href="https://drive.google.com/file/d/1cb4ypcRFCryJq8o4oDrFJ8obFJN6SVAq/view?usp=drivesdk" class="Data">🍿Ouija 1</a></li>
+  <li><a href="https://drive.google.com/file/d/1hXw3rXWHQQDDhz9ocxVEk3WFav-RZKk4/view?usp=drivesdk" class="Data">🍿Annabelle 1</a></li>
+  <li><a href="https://drive.google.com/file/d/1whFra7HbT2ZJF7nCIu3UiiT4ZGRlQ3te/view?usp=drivesdk" class="Data">🍿El Conjuro 1</a></li>
   <li><a href="" class="Data">🍿</a></li>
   <li><a href="" class="Data">🍿</a></li>
   <li><a href="" class="Data">🍿</a></li>
