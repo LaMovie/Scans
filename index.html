@@ -4,12 +4,28 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>💡 DATA FILTRO</title>
+<style>
+#fullscreenButton {
+    scale: 70%;
+    top: 40vh;
+    left: 20vh;
+    position: fixed;
+    background: gray;
+    color: black;
+    opacity: 0.4;
+    font-weight: bold;
+    font-size: 15px;
+    padding: 1px;
+    border-radius: 50px;
+}
+</style>
 </head>
 <body>
   <center>
   <embed id="Pantalla" src="" style="width:100%; height: 30vh; aspect-ration: 16/9" frameborder="0" allowfullscreen="true" allow="encrypted-media" name="WILLOW"></embed> 
-<br/>    
-    <div id="Aux"></div> 
+<br/>   
+     <button id="fullscreenButton">Pantalla Completa</button>
+    <div id="Aux"></div>   
   </center>
   <audio id="audio" src="https://archive.org/download/sergio-mendes-feat.-black-eyed-peas-mas-que-nada-mp-3-160-k-1/Best%20Boot%20Bass%20%28Mix%29.mp3"></audio>
 <script src="Buscador.js"></script>
@@ -22,6 +38,36 @@ if (window.self !== window.top) {
         } else {
       audio.play();
 }
+
+var fullscreenButton = document.querySelector('#fullscreenButton');
+var EMBED = document.querySelector('embed');
+
+fullscreenButton.addEventListener('click', function() {
+  if (EMBED.requestFullscreen) {
+    EMBED.requestFullscreen();
+  } else if (EMBED.mozRequestFullScreen) { // Firefox
+    EMBED.mozRequestFullScreen();
+  } else if (EMBED.webkitRequestFullscreen) { // Chrome, Safari and Opera
+    EMBED.webkitRequestFullscreen();
+  } else if (EMBED.msRequestFullscreen) { // IE/Edge
+    EMBED.msRequestFullscreen();
+  }
+});
+
+<!-- Detectar cuando entra o sale de fullscreen -->
+document.addEventListener('fullscreenchange', function() {
+  if (document.fullscreenElement) {
+    <!-- Si estamos en pantalla completa, bloquear orientación horizontal -->
+    if (screen.orientation && screen.orientation.lock) {
+      screen.orientation.lock('landscape');
+    }
+  } else {
+    <!-- Si salimos de pantalla completa, volver a orientación vertical -->
+    if (screen.orientation && screen.orientation.lock) {
+      screen.orientation.lock('portrait');
+    }
+  }
+});
 </script>
 </body>
 </html>

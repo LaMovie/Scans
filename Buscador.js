@@ -263,7 +263,7 @@ h1 {
      
      
   var Lista = document.getElementById('Lista');
- var CANALES = ['.m3u8', 'bit.ly', 'stream', 'is.gd'];  
+ var CANALES = ['.m3u8', 'bit.ly', 'stream', 'is.gd', 'okpeliz'];  
  
 Lista.addEventListener('click', (event) => {
  if (event.target.tagName === 'A') {
@@ -288,15 +288,7 @@ Pantalla.style.background = 'black';
 buscador.classList.add('PlaceHolder');     
           audio.pause();
 Pantalla.style.background = 'black';
-            } else if (Lista3.some(item => ENLACE.includes('okpeliz'))) {
-     Pantalla.src = ENLACE; 
-       buscador.value = '';          
-    Lista.style.display = 'none';
-    buscador.placeholder = event.target.textContent;;  
-buscador.classList.add('PlaceHolder');     
-        audio.pause();
-Pantalla.style.background = 'black';
-           } else {
+            } else {
    window.location.href = ENLACE;
           audio.pause();
     } 
@@ -479,6 +471,12 @@ input {
 
   <!-- Llama a la función al cargar la página para establecer el estado inicial -->
       Handle();
+
+
+
+      
+
+
 
 
 
