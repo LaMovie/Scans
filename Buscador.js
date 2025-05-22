@@ -62,6 +62,14 @@ Pantalla.style.background = 'black';
 buscador.classList.add('PlaceHolder');     
         audio.pause();
 Pantalla.style.background = 'black';
+           } else if (Lista3.some(item => ENLACE.includes('okpeliz'))) {
+     Pantalla.src = ENLACE; 
+       buscador.value = '';          
+    Lista.style.display = 'none';
+    buscador.placeholder = inputValue;  
+buscador.classList.add('PlaceHolder');     
+        audio.pause();
+Pantalla.style.background = 'black';
            } else {
     window.location.href = matchedItem.href;
          audio.pause();
@@ -280,7 +288,15 @@ Pantalla.style.background = 'black';
 buscador.classList.add('PlaceHolder');     
           audio.pause();
 Pantalla.style.background = 'black';
-            } else {
+            } else if (Lista3.some(item => ENLACE.includes('okpeliz'))) {
+     Pantalla.src = ENLACE; 
+       buscador.value = '';          
+    Lista.style.display = 'none';
+    buscador.placeholder = event.target.textContent;;  
+buscador.classList.add('PlaceHolder');     
+        audio.pause();
+Pantalla.style.background = 'black';
+           } else {
    window.location.href = ENLACE;
           audio.pause();
     } 
