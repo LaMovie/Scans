@@ -7,7 +7,7 @@ var Lista3 = [
   { NAME: "🍿BLANCA NIEVES Y EL CAZADOR", URL: "https://play.okpeliz.com/embed/58595" }, 
   { NAME: "🍿PIRATAS DEL CARIBE 5", URL: "https://play.okpeliz.com/embed/166426" },
   { NAME: "🍿VAN HELSING", URL: "https://play.okpeliz.com/embed/7131" }, 
-  { NAME: "🍿CAPITANA MARVEL", URL: "https://play.okpeliz.com/embed/299537" },
+  { NAME: "🍿CAPITANA MARVEL", URL: "https://play.okpeliz.com/embed/299537?alt=5347&referer=" },
   { NAME: "🍿CAPITAN AMERICA CIVIL WAR", URL: "https://play.okpeliz.com/embed/271110" }, 
   { NAME: "🍿IRON MAN 3", URL: "https://play.okpeliz.com/embed/68721" },
   { NAME: "🍿NO HABLES CON EXTRAÑOS", URL: "https://play.okpeliz.com/embed/1114513" },
