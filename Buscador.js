@@ -62,14 +62,6 @@ Pantalla.style.background = 'black';
 buscador.classList.add('PlaceHolder');     
         audio.pause();
 Pantalla.style.background = 'black';
-           } else if (Lista3.some(item => ENLACE.includes('okpeliz'))) {
-     Pantalla.src = ENLACE; 
-       buscador.value = '';          
-    Lista.style.display = 'none';
-    buscador.placeholder = inputValue;  
-buscador.classList.add('PlaceHolder');     
-        audio.pause();
-Pantalla.style.background = 'black';
            } else {
     window.location.href = matchedItem.href;
          audio.pause();
@@ -233,6 +225,14 @@ h1 {
   <li><a href="" class="Data">🍿</a></li>
   <li><a href="" class="Data">🍿</a></li>
   <li><a href="" class="Data">🍿</a></li>
+  <li><a href="" class="Data">🍿</a></li>
+  <li><a href="" class="Data">🍿</a></li>
+  <li><a href="" class="Data">🍿</a></li>
+  <li><a href="" class="Data">🍿</a></li>
+  <li><a href="" class="Data">🍿</a></li>
+  <li><a href="" class="Data">🍿</a></li>
+  <li><a href="" class="Data">🍿</a></li>
+  <li><a href="" class="Data">🍿</a></li>
     </ul>
            </div>
 </section>
@@ -288,15 +288,7 @@ Pantalla.style.background = 'black';
 buscador.classList.add('PlaceHolder');     
           audio.pause();
 Pantalla.style.background = 'black';
-            } else if (Lista3.some(item => ENLACE.includes('okpeliz'))) {
-     Pantalla.src = ENLACE; 
-       buscador.value = '';          
-    Lista.style.display = 'none';
-    buscador.placeholder = event.target.textContent;;  
-buscador.classList.add('PlaceHolder');     
-        audio.pause();
-Pantalla.style.background = 'black';
-           } else {
+            } else {
    window.location.href = ENLACE;
           audio.pause();
     } 
@@ -315,7 +307,7 @@ document.addEventListener('fullscreenchange', function() {
   } else {
     <!-- Si salimos de pantalla completa, volver a orientación vertical -->
     if (screen.orientation && screen.orientation.lock) {
-      screen.orientation.lock('portrait');  
+      screen.orientation.lock('portrait');
     }
   }
 });
