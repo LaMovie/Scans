@@ -515,6 +515,13 @@ document.addEventListener('fullscreenchange', function() {
   }
 });
 
-     
+ 
+ 
+      window.onload = () => {
+      if (!/Mobi|Android/i.test(navigator.userAgent)) {
+    button.style.marginTop = '60vh';
+    button.style.marginLeft = '40vh';
+     }
+  };    
      
      
