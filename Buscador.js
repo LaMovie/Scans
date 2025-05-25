@@ -515,6 +515,22 @@ document.addEventListener('fullscreenchange', function() {
   }
 });
 
+
+
+document.addEventListener('fullscreenchange', () => {
+  if (!document.fullscreenElement) {
+    const buscador = document.getElementById('buscador');
+    if (buscador) {
+      buscador.placeholder = '🤖'; // si también quieres cambiar el placeholder
+      buscador.focus();
+      buscador.click(); // opcional, dependiendo del navegador
+    }
+  }
+});
+
+     
+     
+     
      
      
      
