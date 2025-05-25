@@ -166,6 +166,17 @@ a {
 h1 {
   font-size: 3vw;
 }
+button {   
+    scale: .7;
+    color: black;
+    opacity: 0.5;    
+    padding: 1px;
+    font-size: 15px;
+    background: gray;
+    margin-left: 10vh; 
+    font-weight: bold;
+    border-radius: 50px;
+}
 </style>
 </head>
 <body>
@@ -263,7 +274,7 @@ h1 {
      
      
   var Lista = document.getElementById('Lista');
- var CANALES = ['.m3u8', 'bit.ly', 'stream', 'is.gd'];  
+ var CANALES = ['.m3u8', 'bit.ly', 'stream', 'is.gd', 'okpeliz'];  
  
 Lista.addEventListener('click', (event) => {
  if (event.target.tagName === 'A') {
@@ -473,6 +484,36 @@ input {
       Handle();
 
 
+       <!-- FULL SCREEN -->
+var fullscreenButton = document.querySelector('#fullscreenButton');
+var iframe = document.querySelector('#Pantalla');
+
+fullscreenButton.addEventListener('click', function() {
+  if (iframe.requestFullscreen) {
+    iframe.requestFullscreen();
+  } else if (iframe.mozRequestFullScreen) { // Firefox
+    iframe.mozRequestFullScreen();
+  } else if (iframe.webkitRequestFullscreen) { // Chrome, Safari and Opera
+    iframe.webkitRequestFullscreen();
+  } else if (iframe.msRequestFullscreen) { // IE/Edge
+    iframe.msRequestFullscreen();
+  }
+});
+
+<!-- Detectar cuando entra o sale de fullscreen -->
+document.addEventListener('fullscreenchange', function() {
+  if (document.fullscreenElement) {
+    <!-- Si estamos en pantalla completa, bloquear orientación horizontal -->
+    if (screen.orientation && screen.orientation.lock) {
+      screen.orientation.lock('landscape');
+    }
+  } else {
+    <!-- Si salimos de pantalla completa, volver a orientación vertical -->
+    if (screen.orientation && screen.orientation.lock) {
+      screen.orientation.lock('portrait');
+    }
+  }
+});
 
      
      
