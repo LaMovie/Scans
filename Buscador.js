@@ -521,13 +521,13 @@ document.addEventListener('fullscreenchange', function() {
       if (!/Mobi|Android/i.test(navigator.userAgent)) {
     document.addEventListener('fullscreenchange', () => {
  if (!document.fullscreenElement) {
-       Pantalla.style.scale = '100%';
+       Pantalla.style.scale = '190%';
      } else {
          Pantalla.style.scale = '100%';
      }
   });
     Full.style.scale = '1.2';
-    Full.style.transform = 'translate(40vh, 38vh)';
+    Full.style.transform = 'translate(25vh, 33vh)';
      }
   };    
      
