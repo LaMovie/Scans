@@ -527,7 +527,7 @@ document.addEventListener('fullscreenchange', function() {
      }
   });
     Full.style.scale = '1.2';
-    Full.style.transform = 'translate(20vh, 33vh)';
+    Full.style.transform = 'translate(18vh, 33vh)';
      }
   };    
      
