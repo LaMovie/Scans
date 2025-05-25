@@ -166,7 +166,7 @@ a {
 h1 {
   font-size: 3vw;
 }
-button {   
+#Full {   
     scale: .7;
     color: black;
     opacity: 0.5;    
@@ -485,10 +485,10 @@ input {
 
 
        <!-- FULL SCREEN -->
-var fullscreenButton = document.querySelector('#fullscreenButton');
+var FULL = document.querySelector('#Full');
 var iframe = document.querySelector('#Pantalla');
 
-fullscreenButton.addEventListener('click', function() {
+FULL.addEventListener('click', function() {
   if (iframe.requestFullscreen) {
     iframe.requestFullscreen();
   } else if (iframe.mozRequestFullScreen) { // Firefox
@@ -519,13 +519,16 @@ document.addEventListener('fullscreenchange', function() {
  
       window.onload = () => {
       if (!/Mobi|Android/i.test(navigator.userAgent)) {
-    button.style.marginTop = '60vh';
-    button.style.marginLeft = '40vh';
-        document.addEventListener('fullscreenchange', () => {
+    document.addEventListener('fullscreenchange', () => {
  if (!document.fullscreenElement) {
        Pantalla.style.scale = '190%';
-          }
-       });
+     } else {
+         Pantalla.style.scale = '100%';
+     }
+  });
+    Full.style.scale = '1.5';
+    Full.style.marginTop = '30vh';
+    Full.style.marginLeft = '20vh';
      }
   };    
      
