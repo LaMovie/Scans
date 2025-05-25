@@ -515,13 +515,17 @@ document.addEventListener('fullscreenchange', function() {
   }
 });
 
- 
+
  
       window.onload = () => {
       if (!/Mobi|Android/i.test(navigator.userAgent)) {
-    Pantalla.scale = '190%';
     button.style.marginTop = '60vh';
     button.style.marginLeft = '40vh';
+        document.addEventListener('fullscreenchange', () => {
+ if (!document.fullscreenElement) {
+       Pantalla.style.scale = '190%';
+          }
+       });
      }
   };    
      
