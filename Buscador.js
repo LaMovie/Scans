@@ -519,12 +519,13 @@ document.addEventListener('fullscreenchange', function() {
 
 document.addEventListener('fullscreenchange', () => {
   if (!document.fullscreenElement) {
-    const buscador = document.getElementById('buscador');
-    if (buscador) {
-      buscador.placeholder = '🤖'; // si también quieres cambiar el placeholder
-      buscador.focus();
-      buscador.click(); // opcional, dependiendo del navegador
-    }
+    setTimeout(() => {
+      const buscador = document.getElementById('buscador');
+      if (buscador) {
+        buscador.placeholder = 'xXx';
+        buscador.focus();
+      }
+    }, 100); // Puedes probar con 200ms o más si es necesario
   }
 });
 
