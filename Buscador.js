@@ -521,7 +521,7 @@ document.addEventListener('fullscreenchange', function() {
       if (!/Mobi|Android/i.test(navigator.userAgent)) {
     document.addEventListener('fullscreenchange', () => {
  if (!document.fullscreenElement) {
-       Pantalla.style.scale = '150%';
+       Pantalla.style.scale = '60%';
      } else {
          Pantalla.style.scale = '100%';
      }
