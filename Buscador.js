@@ -519,13 +519,19 @@ document.addEventListener('fullscreenchange', function() {
 
 document.addEventListener('fullscreenchange', () => {
   if (!document.fullscreenElement) {
-    setTimeout(() => {
+    const onUserInteraction = () => {
       const buscador = document.getElementById('buscador');
       if (buscador) {
-        buscador.placeholder = 'xXx';
         buscador.focus();
+        buscador.placeholder = '▶️';
       }
-    }, 100); // Puedes probar con 200ms o más si es necesario
+      // Remover el listener después de usarlo
+      document.removeEventListener('click', onUserInteraction);
+      document.removeEventListener('keydown', onUserInteraction);
+    };
+
+    document.addEventListener('click', onUserInteraction);
+    document.addEventListener('keydown', onUserInteraction);
   }
 });
 
