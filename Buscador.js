@@ -527,8 +527,8 @@ document.addEventListener('fullscreenchange', function() {
      }
   });
     Full.style.scale = '1.5';
-    Full.style.marginTop = '30vh';
-    Full.style.marginLeft = '20vh';
+    Full.style.marginTop = '38vh';
+    Full.style.marginLeft = '45vh';
      }
   };    
      
