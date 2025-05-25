@@ -526,9 +526,9 @@ document.addEventListener('fullscreenchange', function() {
          Pantalla.style.scale = '100%';
      }
   });
-    Full.style.scale = '1.5';
+    Full.style.scale = '1.3';
     Full.style.marginTop = '38vh';
-    Full.style.marginLeft = '55vh';
+    Full.style.marginLeft = '52vh';
      }
   };    
      
