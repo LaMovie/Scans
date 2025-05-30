@@ -308,23 +308,6 @@ Pantalla.style.background = 'black';
 });   
      
 
-<!-- Detectar cuando entra o sale de fullscreen -->
-document.addEventListener('fullscreenchange', function() {
-  if (document.fullscreenElement) {
-    <!-- Si estamos en pantalla completa, bloquear orientación horizontal -->
-    if (screen.orientation && screen.orientation.lock) {
-      screen.orientation.lock('landscape');
-  Pantalla.style.scale = '100%';
-    }
-  } else {
-    <!-- Si salimos de pantalla completa, volver a orientación vertical -->
-    if (screen.orientation && screen.orientation.lock) {
-      screen.orientation.lock('portrait');
-    }
-  }
-});
-
-
         <!-- HORIZONTAL -->
 
         function Handle() {
