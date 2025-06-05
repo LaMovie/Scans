@@ -170,10 +170,10 @@ h1 {
     top: 30vh;
     left: 45vh;
     width: 15%;
-    height: 5%;
+    height: 10%;
     z-index: 9999;
     position: fixed;
-    background: blue;
+    background: red;
 }
 </style>
 </head>
