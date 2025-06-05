@@ -168,12 +168,12 @@ h1 {
 }
 #FULL {
     top: 30vh;
-    left: 15vh;
-    width: 80%;
+    left: 50vh;
+    width: 15%;
     height: 5%;
     z-index: 9999;
     position: fixed;
-    background: transparent;
+    background: blue;
 }
 </style>
 </head>
