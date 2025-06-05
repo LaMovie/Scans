@@ -173,7 +173,7 @@ h1 {
     height: 10%;
     z-index: 9999;
     position: fixed;
-    background: gold;
+    background: transparent;
 }
 </style>
 </head>
