@@ -168,7 +168,7 @@ h1 {
 }
 #FULL {
     top: 30vh;
-    left: 40vh;
+    left: 45vh;
     width: 15%;
     height: 5%;
     z-index: 9999;
