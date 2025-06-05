@@ -167,13 +167,13 @@ h1 {
   font-size: 3vw;
 }
 #FULL {
-    top: 30vh;
+    top: 27vh;
     left: 45vh;
     width: 15%;
     height: 10%;
     z-index: 9999;
     position: fixed;
-    background: red;
+    background: gold;
 }
 </style>
 </head>
