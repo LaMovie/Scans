@@ -166,16 +166,14 @@ a {
 h1 {
   font-size: 3vw;
 }
-#Full {   
-    scale: .7;
-    color: black;
-    opacity: 0.5;    
-    padding: 1px;
-    font-size: 15px;
-    background: gray;
-    margin-left: 10vh; 
-    font-weight: bold;
-    border-radius: 50px;
+#FULL {
+    top: 30vh;
+    left: 10vh;
+    width: 80%;
+    height: 5%;
+    z-index: 9999;
+    position: fixed;
+    background: transparent;
 }
 </style>
 </head>
@@ -469,7 +467,7 @@ input {
 
 
        <!-- FULL SCREEN -->
-var FULL = document.querySelector('#Full');
+var FULL = document.querySelector('#FULL');
 var iframe = document.querySelector('#Pantalla');
 
 FULL.addEventListener('click', function() {
@@ -490,6 +488,7 @@ document.addEventListener('fullscreenchange', function() {
     <!-- Si estamos en pantalla completa, bloquear orientación horizontal -->
     if (screen.orientation && screen.orientation.lock) {
       screen.orientation.lock('landscape');
+      Pantalla.style.scale = '100%';
     }
   } else {
     <!-- Si salimos de pantalla completa, volver a orientación vertical -->
