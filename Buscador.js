@@ -18,7 +18,7 @@ document.addEventListener("keyup", e=>{
   if (e.target.matches("#buscador")){          
    
       Lista.style.display = Input === '' ? "none" : "block"; 
-      
+     Aux2.style.display = 'none'; 
  
   Data.forEach(item => {
     let itemText = Tildes(item.textContent.toLowerCase(), incluyeÑ);    
@@ -51,6 +51,7 @@ document.addEventListener("keyup", e=>{
         buscador.value = '';          
     Lista.style.display = 'none';
     buscador.placeholder = inputValue;
+    mostrarDetallesOMDb(matchedItem.textContent);
 buscador.classList.add('PlaceHolder'); 
          audio.pause();
 Pantalla.style.background = 'black';
@@ -84,7 +85,7 @@ body {
       background: #000;
       position: fixed;      
 }
-#Aux {
+#Aux, #Aux2 {
       margin: 10vh;
 }   
 #Pantalla {
@@ -287,6 +288,7 @@ Lista.addEventListener('click', (event) => {
      buscador.value = '';          
     Lista.style.display = 'none';
     buscador.placeholder = event.target.textContent;
+    mostrarDetallesOMDb(event.target.textContent);
 buscador.classList.add('PlaceHolder');
           audio.pause();
 Pantalla.style.background = 'black';
@@ -514,4 +516,33 @@ document.addEventListener('fullscreenchange', function() {
      }
   };    
      
+
+
+     async function mostrarDetallesOMDb(tituloOriginal) {
+   Aux2.style.display = 'block';
+  var API_KEY = "e29e6334";
+  var query = tituloOriginal.replace(/^🍿|📺/, '').trim(); // Limpiar emoji
+  try {
+    var res = await fetch(`https://www.omdbapi.com/?t=${encodeURIComponent(query)}&apikey=${API_KEY}`);
+    var data = await res.json();
+    if (data.Response === "True") {
+      Aux2.innerHTML = `
+        <div style="padding: 1em; background: #111; color: white; border-radius: 10px; max-width: 600px; margin: 1vh -8vh; scale: 50%;">
+          <img src="${data.Poster !== "N/A" ? data.Poster : ''}" alt="${data.Title}" style="width: 150px; float: left; margin-right: 1em; border-radius: 10px;">
+          <h2>${data.Title} (${data.Year})</h2>
+          <p><strong>Género:</strong> ${data.Genre}</p>
+          <p><strong>Director:</strong> ${data.Director}</p>
+          <p><strong>Sinopsis:</strong> ${data.Plot}</p>
+          <div style="clear: both;"></div>
+        </div>
+      `;
+    } else {
+      Aux2.style.display = 'none';
+    }
+  } catch (error) {
+    console.error("Error al buscar datos en OMDb:", error);
+  }
+}
+
+
      
