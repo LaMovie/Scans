@@ -519,20 +519,30 @@ document.addEventListener('fullscreenchange', function() {
 
 
      async function mostrarDetallesOMDb(tituloOriginal) {
-   Aux2.style.display = 'block';
+  Aux2.style.display = 'block';
   var API_KEY = "e29e6334";
-  var query = tituloOriginal.replace(/^🍿|📺/, '').trim(); // Limpiar emoji
+  var query = tituloOriginal.replace(/^🍿|📺/, '').trim();
+
   try {
     var res = await fetch(`https://www.omdbapi.com/?t=${encodeURIComponent(query)}&apikey=${API_KEY}`);
     var data = await res.json();
+
     if (data.Response === "True") {
+      // Traducción de los textos relevantes
+      const [titulo, genero, director, sinopsis] = await Promise.all([
+        traducir(data.Title),
+        traducir(data.Genre),
+        traducir(data.Director),
+        traducir(data.Plot)
+      ]);
+
       Aux2.innerHTML = `
         <div style="padding: 1em; background: #111; color: white; border-radius: 10px; max-width: 600px; margin: 1vh -8vh; scale: 50%;">
-          <img src="${data.Poster !== "N/A" ? data.Poster : ''}" alt="${data.Title}" style="width: 150px; float: left; margin-right: 1em; border-radius: 10px;">
-          <h2>${data.Title} (${data.Year})</h2>
-          <p><strong>Género:</strong> ${data.Genre}</p>
-          <p><strong>Director:</strong> ${data.Director}</p>
-          <p><strong>Sinopsis:</strong> ${data.Plot}</p>
+          <img src="${data.Poster !== "N/A" ? data.Poster : ''}" alt="${titulo}" style="width: 150px; float: left; margin-right: 1em; border-radius: 10px;">
+          <h2>${titulo} (${data.Year})</h2>
+          <p><strong>Género:</strong> ${genero}</p>
+          <p><strong>Director:</strong> ${director}</p>
+          <p><strong>Sinopsis:</strong> ${sinopsis}</p>
           <div style="clear: both;"></div>
         </div>
       `;
@@ -540,9 +550,18 @@ document.addEventListener('fullscreenchange', function() {
       Aux2.style.display = 'none';
     }
   } catch (error) {
-    console.error("Error al buscar datos en OMDb:", error);
+    console.error("Error al buscar o traducir datos:", error);
   }
 }
+
+
+
+    async function traducir(texto) {
+  const res = await fetch(`https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=es&dt=t&q=${encodeURIComponent(texto)}`);
+  const data = await res.json();
+  return data[0][0][0]; // Retorna la traducción
+}
+
 
 
      
