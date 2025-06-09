@@ -60,6 +60,7 @@ Pantalla.style.background = 'black';
        buscador.value = '';          
     Lista.style.display = 'none';
     buscador.placeholder = inputValue;  
+    mostrarDetallesOMDb(matchedItem.textContent);
 buscador.classList.add('PlaceHolder');     
         audio.pause();
 Pantalla.style.background = 'black';
@@ -297,6 +298,7 @@ Pantalla.style.background = 'black';
        buscador.value = '';          
     Lista.style.display = 'none';
     buscador.placeholder = event.target.textContent;  
+    mostrarDetallesOMDb(event.target.textContent);
 buscador.classList.add('PlaceHolder');     
           audio.pause();
 Pantalla.style.background = 'black';
@@ -517,7 +519,7 @@ document.addEventListener('fullscreenchange', function() {
   };    
      
 
-
+      <!-- FICHA TÉCNICA -->
      async function mostrarDetallesOMDb(tituloOriginal) {
   Aux2.style.display = 'block';
   var API_KEY = "e29e6334";
@@ -529,7 +531,7 @@ document.addEventListener('fullscreenchange', function() {
 
     if (data.Response === "True") {
       // Traducción de los textos relevantes
-      const [titulo, genero, director, sinopsis] = await Promise.all([
+      var [titulo, genero, director, sinopsis] = await Promise.all([
         traducir(data.Title),
         traducir(data.Genre),
         traducir(data.Director),
@@ -555,7 +557,7 @@ document.addEventListener('fullscreenchange', function() {
 }
 
 
-
+        <!-- TRADUCTOR -->
     async function traducir(texto) {
   const res = await fetch(`https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=es&dt=t&q=${encodeURIComponent(texto)}`);
   const data = await res.json();
