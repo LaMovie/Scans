@@ -214,7 +214,7 @@ h1 {
      
      
   var Lista = document.getElementById('Lista');
- var CANALES = ['.m3u8', 'bit.ly', 'stream', 'is.gd', 'okpeliz', 'lamovie'];  
+ var CANALES = ['.m3u8', 'bit.ly', 'stream', 'is.gd', 'okpeliz'];  
  
 Lista.addEventListener('click', (event) => {
  if (event.target.tagName === 'A') {
