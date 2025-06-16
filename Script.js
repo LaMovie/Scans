@@ -45,6 +45,15 @@ document.addEventListener("keyup", e=>{
              
       if (matchedItem) {
       var ENLACE = matchedItem.getAttribute("href");
+      
+   // DETENER REPRODUCCIÓN ANTERIOR
+if (Pantalla.src !== "" && Pantalla.style.display !== 'none') {
+  Pantalla.src = 'about:blank'; // Detener iframe
+}
+if (PP.src !== "" && PP.style.display !== 'none') {
+  PP.src = 'about:blank'; // Detener embed
+}   
+      
       if (ENLACE.includes('file')) {
    var URL = ENLACE.split('view?usp')[0]; // Obtiene parte anterior a 'view?usp=drive'
         var PRE = 'preview';
@@ -52,6 +61,7 @@ document.addEventListener("keyup", e=>{
  Pantalla.style.display = 'block';
  PP.style.display = 'none';
      Pantalla.src = URL + PRE;
+          PP.src = 'about:blank';
         buscador.value = '';          
     Lista.style.display = 'none';
     buscador.placeholder = inputValue;
@@ -64,6 +74,7 @@ Pantalla.style.background = 'black';
   Pantalla.style.display = 'block';
     PP.style.display = 'none';  
      Pantalla.src = ENLACE; 
+          PP.src = 'about:blank';
        buscador.value = '';          
     Lista.style.display = 'none';
     buscador.placeholder = inputValue;  
@@ -76,6 +87,7 @@ Pantalla.style.background = 'black';
   Pantalla.style.display = 'none';
   PP.style.display = 'block'; 
        PP.src = ENLACE; 
+      Pantalla.src = 'about:blank';
      buscador.value = '';          
     Lista.style.display = 'none';
     buscador.placeholder = inputValue;  
@@ -250,6 +262,15 @@ Lista.addEventListener('click', (event) => {
     event.preventDefault(); 
   var ENLACE = event.target.href;
   
+  
+  // DETENER REPRODUCCIÓN ANTERIOR
+if (Pantalla.src !== "" && Pantalla.style.display !== 'none') {
+  Pantalla.src = 'about:blank'; // Detener iframe
+}
+if (PP.src !== "" && PP.style.display !== 'none') {
+  PP.src = 'about:blank'; // Detener embed
+}
+  
   if (ENLACE.includes('file')) {
   var URL = ENLACE.split('view?usp')[0];
        var PRE = 'preview';
@@ -257,6 +278,7 @@ Lista.addEventListener('click', (event) => {
   Pantalla.style.display = 'block';
     PP.style.display = 'none';  
      Pantalla.src = URL + PRE; 
+         PP.src = 'about:blank';
      buscador.value = '';          
     Lista.style.display = 'none';
     buscador.placeholder = event.target.textContent;
@@ -269,6 +291,7 @@ Pantalla.style.background = 'black';
   Pantalla.style.display = 'block';
      PP.style.display = 'none';   
        Pantalla.src = ENLACE; 
+          PP.src = 'about:blank';
        buscador.value = '';          
     Lista.style.display = 'none';
     buscador.placeholder = event.target.textContent;  
@@ -281,6 +304,7 @@ Pantalla.style.background = 'black';
   Pantalla.style.display = 'none';
   PP.style.display = 'block'; 
        PP.src = ENLACE; 
+      Pantalla.src = 'about:blank';
     buscador.value = '';          
     Lista.style.display = 'none';
     buscador.placeholder = event.target.textContent;  
