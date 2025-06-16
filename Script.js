@@ -41,12 +41,16 @@ document.addEventListener("keyup", e=>{
       var matchedItem = [...document.querySelectorAll(".Data")].find(
         item => Tildes(item.textContent.toLowerCase(), incluyeÑ) === inputValue
     );
+      var PP = document.querySelector('.Pantalla');
              
       if (matchedItem) {
       var ENLACE = matchedItem.getAttribute("href");
       if (ENLACE.includes('file')) {
    var URL = ENLACE.split('view?usp')[0]; // Obtiene parte anterior a 'view?usp=drive'
         var PRE = 'preview';
+   FULL.style.display = 'none';
+ Pantalla.style.display = 'block';
+ PP.style.display = 'none';
      Pantalla.src = URL + PRE;
         buscador.value = '';          
     Lista.style.display = 'none';
@@ -56,6 +60,9 @@ buscador.classList.add('PlaceHolder');
          audio.pause();
 Pantalla.style.background = 'black';
           } else if (CANALES.some(item => ENLACE.includes(item))) {
+    FULL.style.display = 'none';
+  Pantalla.style.display = 'block';
+    PP.style.display = 'none';  
      Pantalla.src = ENLACE; 
        buscador.value = '';          
     Lista.style.display = 'none';
@@ -64,6 +71,18 @@ Pantalla.style.background = 'black';
 buscador.classList.add('PlaceHolder');     
         audio.pause();
 Pantalla.style.background = 'black';
+           } else if (ENLACE.includes('okpeliz')) {
+   FULL.style.display = 'block';
+  Pantalla.style.display = 'none';
+  PP.style.display = 'block'; 
+       PP.src = ENLACE; 
+     buscador.value = '';          
+    Lista.style.display = 'none';
+    buscador.placeholder = inputValue;  
+    mostrarDetallesOMDb(matchedItem.textContent);
+buscador.classList.add('PlaceHolder');     
+        audio.pause();
+Pantalla.style.background = 'black';      
            } else {
     window.location.href = matchedItem.href;
          audio.pause();
@@ -93,9 +112,17 @@ body {
     margin: 3vh;
     border-radius: 20px; 
     background: url(https://is.gd/L4PVt2);
-    /*https://bit.ly/49X0ijf*/
     background-size: cover;
     background-position: center;
+}
+.Pantalla {
+    display: none;
+    margin: 3vh;
+    border-radius: 20px; 
+    background: #000;
+    background-size: cover;
+    background-position: center;
+}
 }
 section {
     width: 55%;
@@ -173,6 +200,7 @@ h1 {
     left: 45vh;
     width: 15%;
     height: 10%;
+    display: none;
     z-index: 9999;
     position: fixed;
     background: transparent;
@@ -214,7 +242,8 @@ h1 {
      
      
   var Lista = document.getElementById('Lista');
- var CANALES = ['.m3u8', 'bit.ly', 'stream', 'is.gd', 'okpeliz', 'lamovie.link'];  
+ var CANALES = ['.m3u8', 'bit.ly', 'stream', 'is.gd', 'lamovie.link'];
+ var PP = document.querySelector('.Pantalla');  
  
 Lista.addEventListener('click', (event) => {
  if (event.target.tagName === 'A') {
@@ -224,6 +253,9 @@ Lista.addEventListener('click', (event) => {
   if (ENLACE.includes('file')) {
   var URL = ENLACE.split('view?usp')[0];
        var PRE = 'preview';
+   FULL.style.display = 'none';
+  Pantalla.style.display = 'block';
+    PP.style.display = 'none';  
      Pantalla.src = URL + PRE; 
      buscador.value = '';          
     Lista.style.display = 'none';
@@ -233,6 +265,9 @@ buscador.classList.add('PlaceHolder');
           audio.pause();
 Pantalla.style.background = 'black';
             } else if (CANALES.some(item => ENLACE.includes(item))) {
+   FULL.style.display = 'none';
+  Pantalla.style.display = 'block';
+     PP.style.display = 'none';   
        Pantalla.src = ENLACE; 
        buscador.value = '';          
     Lista.style.display = 'none';
@@ -241,7 +276,19 @@ Pantalla.style.background = 'black';
 buscador.classList.add('PlaceHolder');     
           audio.pause();
 Pantalla.style.background = 'black';
-            } else {
+            } else if (ENLACE.includes('okpeliz')) {
+   FULL.style.display = 'block';
+  Pantalla.style.display = 'none';
+  PP.style.display = 'block'; 
+       PP.src = ENLACE; 
+    buscador.value = '';          
+    Lista.style.display = 'none';
+    buscador.placeholder = event.target.textContent;  
+    mostrarDetallesOMDb(event.target.textContent);
+buscador.classList.add('PlaceHolder');     
+          audio.pause();
+Pantalla.style.background = 'black';     
+           } else {
    window.location.href = ENLACE;
           audio.pause();
     } 
@@ -411,19 +458,19 @@ input {
 
        <!-- FULL SCREEN -->
 var FULL = document.querySelector('#FULL');
-var iframe = document.querySelector('#Pantalla');
+var SCREE = document.querySelector('.Pantalla');
 
 FULL.addEventListener('click', function() {
-  if (iframe.requestFullscreen) {
-    iframe.requestFullscreen();
-  } else if (iframe.mozRequestFullScreen) { // Firefox
-    iframe.mozRequestFullScreen();
-  } else if (iframe.webkitRequestFullscreen) { // Chrome, Safari and Opera
-    iframe.webkitRequestFullscreen();
-  } else if (iframe.msRequestFullscreen) { // IE/Edge
-    iframe.msRequestFullscreen();
-  }
-});
+   if (SCREE.requestFullscreen) {
+    SCREE.requestFullscreen();
+  } else if (SCREE.mozRequestFullScreen) { // Firefox
+    SCREE.mozRequestFullScreen();
+  } else if (SCREE.webkitRequestFullscreen) { // Chrome, Safari and Opera
+    SCREE.webkitRequestFullscreen();
+  } else if (SCREE.msRequestFullscreen) { // IE/Edge
+    SCREE.msRequestFullscreen();
+   }
+ });
 
 <!-- Detectar cuando entra o sale de fullscreen -->
 document.addEventListener('fullscreenchange', function() {
