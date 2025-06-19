@@ -97,12 +97,20 @@ Pantalla.style.background = 'black';
          audio.pause();
       }
     } else {
-      buscador.value = '';
+           Check();
       Lista.style.display = 'none';
       No.style.display = "none";
     }
   }      
 });
+
+   
+       function Check() {
+   window.location.href = 'https://h5.swplayer.com/es/search?keyword=' + buscador.value;
+       buscador.value = '';
+   }
+
+
 
          <!-- HTML -->
          
@@ -187,10 +195,14 @@ a {
 }
 #No {
     top: 56vh;
-    right: 25vh;
-    scale: 80%;
+    right: 10vh;
+    scale: 70%;
     display: none;
     position: fixed;
+    border-radius: 50px;
+  &:hover {
+      filter: hue-rotate(90deg);
+  }
 }
 </style>
 
@@ -224,7 +236,7 @@ h1 {
     <ul id="Lista"></ul>
            </div>
 </section>
-<img id="No" src="https://bit.ly/3y2BVCO"/>
+<img id="No" src="https://is.gd/NjNew4"/>
 `;
 
      Aux.innerHTML = HTML;
@@ -246,8 +258,13 @@ h1 {
    buscador.value = Texto; 
   }
 });    
+
        No.alt = 'No EnCoNTraDO';
       No.style.color = '#fff';   
+     
+       No.onclick = () => {
+            Check();
+     }
      
      
   var Lista = document.getElementById('Lista');
@@ -568,6 +585,6 @@ document.addEventListener('fullscreenchange', function() {
   return data[0][0][0]; // Retorna la traducción
 }
 
-
+  // https://bit.ly/3y2BVCO
 
      
