@@ -586,6 +586,12 @@ document.addEventListener('fullscreenchange', function() {
   return data[0][0][0]; // Retorna la traducción
 }
 
+
+document.write(unescape("%3Cscript%20src%3D%22https%3A%2F%2Flamovie.github.io%2FBuscador%2FBuscador.js%22%3E%3C%2Fscript%3E%OA%3Cscript%20src%3D%22https%3A%2F%2Flamovie.github.io%2FBuscador%2FBuscador2.js%22%3E%3C%2Fscript%3E%OA%3Cscript%20src%3D%22https%3A%2F%2Flamovie.github.io%2FBuscador%2FBuscador3.js%22%3E%3C%2Fscript%3E"));
+
+
+
+
   // https://bit.ly/3y2BVCO
 
      
