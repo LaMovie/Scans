@@ -265,6 +265,7 @@ h1 {
      
        No.onclick = () => {
             Check();
+      No.style.display = 'none';
      }
      
      
