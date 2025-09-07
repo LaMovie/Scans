@@ -106,7 +106,7 @@ Pantalla.style.background = 'black';
 
    
        function Check() {
-   window.location.href = 'https://h5.swplayer.com/es/search?keyword=' + buscador.value;
+   window.location.href = 'https://h5.onfilom.com/es/search?keyword=' + buscador.value;
        buscador.value = '';
    }
 
@@ -588,7 +588,7 @@ document.addEventListener('fullscreenchange', function() {
 }
 
 
-document.write(unescape("%3Cscript%20src%3D%22https%3A%2F%2Flamovie.github.io%2FBuscador%2FBuscador.js%22%3E%3C%2Fscript%3E%3Cscript%20src%3D%22https%3A%2F%2Flamovie.github.io%2FBuscador%2FBuscador2.js%22%3E%3C%2Fscript%3E%3Cscript%20src%3D%22https%3A%2F%2Flamovie.github.io%2FBuscador%2FBuscador3.js%22%3E%3C%2Fscript%3E"));
+document.write(unescape("%3Cscript%20src%3D%22https%3A%2F%2Flamovie.github.io%2FBuscador%2FBuscador.js%22%3E%3C%2Fscript%3E%3Cscript%20src%3D%22https%3A%2F%2Flamovie.github.io%2FBuscador%2FBuscador2.js%22%3E%3C%2Fscript%3E"));
 
 
 
