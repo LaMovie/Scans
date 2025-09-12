@@ -1,127 +1,41 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styles.css">
-  <title>Modal</title>     
-<style>
-body {
-    background: url(https://bit.ly/3WekaZh);
-    background-size: cover;
-    background-position: center;
-}
-.modal {  
-  top: 0;
-  left: 0;
-  z-index: 1;
-  width: 100%;
-  height: 100%;
-  display: block;
-  overflow: auto;
-  position: fixed;
-  background: rgb(0,0,0,.5);
-}
-.modal-contenido {
-  top: 15%;
-  width: 80%;  
-  padding: 20px;
-  margin: 15% auto;
-  position: relative;
-  border-radius: 20px;
-  border: 1px solid #888;
-  background-color: #000;  
-  box-shadow: 10px 10px 0px black;
-  
- &:hover {
-    scale: 105%;
- }
-}
-#Input {
-    color: black;
-    background: gold;
-    font-weight: bold;
-    border-radius: 20px;   
-    box-shadow: 0 0 30px red; 
-    
-  &:hover {
-      scale: 105%;
-  }
-}
-#Message {
-    color: red;
-    display: none;
-}
-#Label {
-    left: 0;
-    color: gray;
-    opacity: .8;
-    position: relative;
-}
-#Imgg {    
-    width: 30%;
-    heigth: auto;   
-    
-  &:hover {
-      scale: 150%;
-  }
-}
-#No {
-    display: none;
-    width: 30%;
-}
-</style>     
+  <title>💡 DATA FILTRO</title>
 </head>
-<body>      
-<center>
-      <div class="contenido">
-             </div>
-  <div class="modal" id="Modal">
-   <div class="modal-contenido"> 
-   
- <img id="No" src="https://bit.ly/3y2BVCO"/>
-            
-      <img id="Imgg" src="https://bit.ly/49X0ijf"/><br/>
-      
-<label id="Label">Ingrese contraseña :🔑</label><br/><br/>
-      
- <input type="password" id="Input"/>
- 
- <p id="Message">Contraseña incorrecta. Por favor, inténtelo de nuevo.</p>      
-    </div>
-  </div>
-</center>         
-          <!-- MODAL -->
-<script>
-document.addEventListener("keyup", e=> {
-    
-   if (e.key === 'Enter' && Input.value.toLowerCase().trim() === 'expus') {    
-   Modal.style.display = 'none';
-      
- } else if (e.key === 'Enter' && Input.value.toLowerCase().trim() !== 'expus') {
-   Input.value = '';
-   No.style.display = "block"; 
-   Imgg.style.display = "none";   
-   Message.style.display = "block";
-  } else if (e.target.matches('#Input')) {
-    Message.style.display = "none";   
-    No.style.display = "none"; 
-    Imgg.style.display = "block"; 
-  }
-});
-</script>
+<body>
+  <center>
+     <div id="FULL"></div>
+     
+  <iframe id="Pantalla" src="" style="width:100%; height: 30vh; aspect-ration: 16/9" name="WILLOW" marginheight="0" marginwidth="0" frameborder="0" allowfullscreen="true" allow="encrypted-media"></iframe>
+  
+  <embed class="Pantalla" src="" style="width:100%; height: 30vh; aspect-ration: 16/9" frameborder="0" allowfullscreen="true" allow="encrypted-media" name="WILLOW"></embed> 
+<br/>    
+       
+    <div id="Aux"></div> 
+    <div id="Aux2"></div> 
+  </center>
+  <audio id="audio" src="https://archive.org/download/sergio-mendes-feat.-black-eyed-peas-mas-que-nada-mp-3-160-k-1/Best%20Boot%20Bass%20%28Mix%29.mp3"></audio>
+  <script src="Script.js"></script>
 
-<script> Label.addEventListener('copy', function() {      
-   document.oncopy = event => {
-    event.preventDefault();
-    event.clipboardData.setData('text/plain', 'EXPUS');
-}      
-});   
+<script>
+if (window.self !== window.top) {
+      audio.pause();
+        } else {
+      audio.play();
+}
 </script>
 </body>
 </html>
 
 
+ <!-- var terms = ['.m3u8', 'bit.ly']; 
+if (terms.some(term => ENLACE.includes(term))) {} -->
+
+<!-- var terms = ['.m3u8', 'bit.ly']; 
+if (terms.every(term => ENLACE.includes(term))) {} -->
 
 
 
