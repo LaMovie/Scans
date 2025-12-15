@@ -543,22 +543,47 @@ document.addEventListener('fullscreenchange', function() {
      
 
       <!-- FICHA TÉCNICA -->
-     async function mostrarDetallesOMDb(tituloOriginal) {
+     // --- MODIFICAR LA FUNCIÓN traducir ---
+async function traducir(texto, sl = 'en', tl = 'es') {
+  // sl = Source Language (idioma de origen), tl = Target Language (idioma de destino)
+  if (!texto) return ''; // Manejar caso de texto vacío
+  try {
+    const res = await fetch(`https://translate.googleapis.com/translate_a/single?client=gtx&sl=${sl}&tl=${tl}&dt=t&q=${encodeURIComponent(texto)}`);
+    const data = await res.json();
+    // La respuesta de esta API es un array anidado, el resultado es data[0][0][0]
+    return data[0][0][0];
+  } catch (error) {
+    console.error(`Error al traducir de ${sl} a ${tl}:`, error);
+    return texto; // Devolver el texto original en caso de error
+  }
+}
+
+// --- MODIFICAR LA FUNCIÓN mostrarDetallesOMDb ---
+async function mostrarDetallesOMDb(tituloOriginal) {
   Aux2.style.display = 'block';
   var API_KEY = "e29e6334";
-  var query = tituloOriginal.replace(/^🍿|📺/, '').trim();
+  var tituloLimpio = tituloOriginal.replace(/^🍿|📺|⚙️/, '').trim(); // Limpiar prefijos de emoji
 
   try {
-    var res = await fetch(`https://www.omdbapi.com/?t=${encodeURIComponent(query)}&apikey=${API_KEY}`);
+    // 1. Pre-traducir el título buscado de ES a EN para la consulta a OMDb
+    var queryOMDb = await traducir(tituloLimpio, 'es', 'en');
+    // Si la traducción resulta en el mismo texto (probablemente ya estaba en inglés o es un título ambiguo),
+    // se mantiene la query original para evitar errores.
+    if (queryOMDb === tituloLimpio || !queryOMDb) {
+        queryOMDb = tituloLimpio;
+    }
+
+    // 2. Consultar OMDb con el título traducido a inglés (o el original si ya lo estaba)
+    var res = await fetch(`https://www.omdbapi.com/?t=${encodeURIComponent(queryOMDb)}&apikey=${API_KEY}`);
     var data = await res.json();
 
     if (data.Response === "True") {
-      // Traducción de los textos relevantes
+      // 3. Post-traducir los resultados relevantes de EN a ES para la visualización
       var [titulo, genero, director, sinopsis] = await Promise.all([
-        traducir(data.Title),
-        traducir(data.Genre),
-        traducir(data.Director),
-        traducir(data.Plot)
+        traducir(data.Title, 'en', 'es'),
+        traducir(data.Genre, 'en', 'es'),
+        traducir(data.Director, 'en', 'es'),
+        traducir(data.Plot, 'en', 'es')
       ]);
 
       Aux2.innerHTML = `
@@ -572,20 +597,26 @@ document.addEventListener('fullscreenchange', function() {
         </div>
       `;
     } else {
+      // Intentar buscar directamente en OMDb si la pre-traducción falló, o si el título es en español y no se traduce bien
+      // Si el título original es muy probable que esté en inglés, no necesita esta segunda búsqueda.
       Aux2.style.display = 'none';
     }
   } catch (error) {
     console.error("Error al buscar o traducir datos:", error);
+    Aux2.style.display = 'none';
   }
 }
 
 
+
         <!-- TRADUCTOR -->
-    async function traducir(texto) {
-  const res = await fetch(`https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=es&dt=t&q=${encodeURIComponent(texto)}`);
+    async function traducir(texto, sl = 'en', tl = 'es') {
+  // sl = Source Language (idioma de origen), tl = Target Language (idioma de destino)
+  const res = await fetch(`https://translate.googleapis.com/translate_a/single?client=gtx&sl=${sl}&tl=${tl}&dt=t&q=${encodeURIComponent(texto)}`);
   const data = await res.json();
   return data[0][0][0]; // Retorna la traducción
 }
+
 
 
 document.write(unescape("%3Cscript%20src%3D%22https%3A%2F%2Flamovie.github.io%2FBuscador%2FBuscador.js%22%3E%3C%2Fscript%3E%3Cscript%20src%3D%22https%3A%2F%2Flamovie.github.io%2FBuscador%2FBuscador2.js%22%3E%3C%2Fscript%3E%3Cscript%20src%3D%22https%3A%2F%2Flamovie.github.io%2FBuscador%2FBuscador3.js%22%3E%3C%2Fscript%3E"));
