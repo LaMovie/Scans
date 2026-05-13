@@ -104,11 +104,16 @@ Pantalla.style.background = 'black';
   }      
 });
 
-   
+    
        function Check() {
-   window.location.href = 'https://latino.solo-latino.com/es/search?keyword=' + buscador.value;
+   var isMobile = /Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    
+    // Elegir dominio según dispositivo
+    var domain = isMobile ? 'https://latino.solo-latino.com/es/search?keyword=' : 'https://h5.swplayer.com/es/search?keyword=';
+    
+    window.location.href = domain + buscador.value;
        buscador.value = '';
-   }
+    };
 
 
 
