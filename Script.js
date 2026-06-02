@@ -322,11 +322,11 @@ Pantalla.style.background = 'black';
 buscador.classList.add('PlaceHolder');     
           audio.pause();
 Pantalla.style.background = 'black';
-            } else if (ENLACE.includes('okpeliz')) {
-   FULL.style.display = 'block';
-  Pantalla.style.display = 'none';
-  PP.style.display = 'block'; 
-       PP.src = ENLACE; 
+            } else if (ENLACE.includes('limit')) {
+   FULL.style.display = 'none';
+  Pantalla.style.display = 'block';
+  PP.style.display = 'none'; 
+       Pantalla.src = ENLACE; 
     buscador.value = '';          
     Lista.style.display = 'none';
     buscador.placeholder = event.target.textContent;  
