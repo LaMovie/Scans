@@ -61,6 +61,7 @@ if (PP.src !== "" && PP.style.display !== 'none') {
  Pantalla.style.display = 'block';
  PP.style.display = 'none';
      Pantalla.src = URL + PRE;
+     AA.play();
         buscador.value = '';          
     Lista.style.display = 'none';
     buscador.placeholder = inputValue;
@@ -303,6 +304,7 @@ if (PP.src !== "" && PP.style.display !== 'none') {
   Pantalla.style.display = 'block';
     PP.style.display = 'none';  
      Pantalla.src = URL + PRE; 
+     AA.play();
      buscador.value = '';          
     Lista.style.display = 'none';
     buscador.placeholder = event.target.textContent;
