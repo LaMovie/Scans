@@ -80,11 +80,11 @@ Pantalla.style.background = 'black';
 buscador.classList.add('PlaceHolder');     
         audio.pause();
 Pantalla.style.background = 'black';
-           } else if (ENLACE.includes('okpeliz')) {
-   FULL.style.display = 'block';
-  Pantalla.style.display = 'none';
-  PP.style.display = 'block'; 
-       PP.src = ENLACE; 
+           } else if (ENLACE.includes('limit')) {
+   FULL.style.display = 'none';
+  Pantalla.style.display = 'block';
+  PP.style.display = 'none'; 
+       Pantalla.src = ENLACE; 
      buscador.value = '';          
     Lista.style.display = 'none';
     buscador.placeholder = inputValue;  
@@ -627,8 +627,7 @@ async function mostrarDetallesOMDb(tituloOriginal) {
 }
 
 
-
-document.write(unescape("%3Cscript%20src%3D%22https%3A%2F%2Flamovie.github.io%2FBuscador%2FBuscador.js%22%3E%3C%2Fscript%3E%3Cscript%20src%3D%22https%3A%2F%2Flamovie.github.io%2FBuscador%2FBuscador2.js%22%3E%3C%2Fscript%3E%3Cscript%20src%3D%22https%3A%2F%2Flamovie.github.io%2FBuscador%2FBuscador3.js%22%3E%3C%2Fscript%3E"));
+ document.write(unescape("%3Cscript%20src%3D%22Buscador.js%22%3E%3C%2Fscript%3E%3Cscript%20src%3D%22Buscador2.js%22%3E%3C%2Fscript%3E%3Cscript%20src%3D%22Buscador3.js%22%3E%3C%2Fscript%3E"));
 
 
 
