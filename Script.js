@@ -109,7 +109,7 @@ Pantalla.style.background = 'black';
        function Check() {
    var isMobile = /Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
    
-   var URL = [ "https://latino.solo-latino.com/es/search?keyword=", "https://ver.123pelicula.com/es/search?keyword=", "https://flixlat.com/es/search?keyword=", "https://es.cuevana4br.com/es/search?keyword=", "https://video.playspelis.com/es/search?keyword=", "https://ww20.321moviesfree.com/es/search?keyword="];
+   var URL = [ "https://latino.solo-latino.com/es/search?keyword=", "https://ver.123pelicula.com/es/search?keyword=", "https://flixlat.com/es/search?keyword=",  "https://video.playspelis.com/es/search?keyword=",  "https://ww1.123flmsfree.com/es/search?keyword="];
  
  var STREAMs = Math.floor(Math.random() * URL.length);
     
