@@ -96,6 +96,7 @@ Pantalla.style.background = 'black';
            } else {
     window.location.href = matchedItem.href;
          audio.pause();
+         buscador.value = '';
       }
     } else {
            Check();
@@ -339,6 +340,7 @@ Pantalla.style.background = 'black';
            } else {
    window.location.href = ENLACE;
           audio.pause();
+          buscador.value = '';
     } 
   }
 });   
