@@ -81,18 +81,6 @@ Pantalla.style.background = 'black';
 buscador.classList.add('PlaceHolder');     
         audio.pause();
 Pantalla.style.background = 'black';
-           } else if (ENLACE.includes('okpeliz')) {
-   FULL.style.display = 'block';
-  Pantalla.style.display = 'none';
-  PP.style.display = 'block'; 
-       PP.src = ENLACE; 
-     buscador.value = '';          
-    Lista.style.display = 'none';
-    buscador.placeholder = inputValue;  
-    mostrarDetallesOMDb(matchedItem.textContent);
-buscador.classList.add('PlaceHolder');     
-        audio.pause();
-Pantalla.style.background = 'black';      
            } else {
     window.location.href = matchedItem.href;
          audio.pause();
@@ -281,7 +269,7 @@ h1 {
      
      
   var Lista = document.getElementById('Lista');
- var CANALES = ['.m3u8', 'bit.ly', 'stream', 'is.gd', 'lamovie.link'];
+ var CANALES = ['bit.ly', 'stream', 'is.gd'];
  var PP = document.querySelector('.Pantalla');  
  
 Lista.addEventListener('click', (event) => {
@@ -325,19 +313,7 @@ Pantalla.style.background = 'black';
 buscador.classList.add('PlaceHolder');     
           audio.pause();
 Pantalla.style.background = 'black';
-            } else if (ENLACE.includes('okpeliz')) {
-   FULL.style.display = 'block';
-  Pantalla.style.display = 'none';
-  PP.style.display = 'block'; 
-       PP.src = ENLACE; 
-    buscador.value = '';          
-    Lista.style.display = 'none';
-    buscador.placeholder = event.target.textContent;  
-    mostrarDetallesOMDb(event.target.textContent);
-buscador.classList.add('PlaceHolder');     
-          audio.pause();
-Pantalla.style.background = 'black';     
-           } else {
+            } else {
    window.location.href = ENLACE;
           audio.pause();
           buscador.value = '';
