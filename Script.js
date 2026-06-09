@@ -45,6 +45,7 @@ document.addEventListener("keyup", e=>{
              
       if (matchedItem) {
       var ENLACE = matchedItem.getAttribute("href");
+      var NN = matchedItem.textContent;
       
    // DETENER REPRODUCCIÓN ANTERIOR
 if (Pantalla.src !== "" && Pantalla.style.display !== 'none') {
@@ -69,7 +70,7 @@ if (PP.src !== "" && PP.style.display !== 'none') {
 buscador.classList.add('PlaceHolder'); 
          audio.pause();
 Pantalla.style.background = 'black';
-          } else if (CANALES.some(item => ENLACE.includes(item))) {
+          } else if (NN.includes('Tv')) {
     FULL.style.display = 'none';
   Pantalla.style.display = 'block';
     PP.style.display = 'none';  
@@ -269,13 +270,13 @@ h1 {
      
      
   var Lista = document.getElementById('Lista');
- var CANALES = ['bit.ly', 'stream', 'is.gd'];
  var PP = document.querySelector('.Pantalla');  
  
 Lista.addEventListener('click', (event) => {
  if (event.target.tagName === 'A') {
     event.preventDefault(); 
   var ENLACE = event.target.href;
+  var NN = event.target.textContent;
   
   
   // DETENER REPRODUCCIÓN ANTERIOR
@@ -301,7 +302,7 @@ if (PP.src !== "" && PP.style.display !== 'none') {
 buscador.classList.add('PlaceHolder');
           audio.pause();
 Pantalla.style.background = 'black';
-            } else if (CANALES.some(item => ENLACE.includes(item))) {
+            } else if (NN.includes('Tv')) {
    FULL.style.display = 'none';
   Pantalla.style.display = 'block';
      PP.style.display = 'none';   
