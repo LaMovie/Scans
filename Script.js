@@ -70,6 +70,18 @@ if (PP.src !== "" && PP.style.display !== 'none') {
 buscador.classList.add('PlaceHolder'); 
          audio.pause();
 Pantalla.style.background = 'black';
+          } else if (ENLACE.includes('play.vidyard')) {
+    FULL.style.display = 'none';
+  Pantalla.style.display = 'block';
+    PP.style.display = 'none';  
+     Pantalla.src = ENLACE; 
+       buscador.value = '';          
+    Lista.style.display = 'none';
+    buscador.placeholder = inputValue;  
+    mostrarDetallesOMDb(matchedItem.textContent);
+buscador.classList.add('PlaceHolder');     
+        audio.pause();
+Pantalla.style.background = 'black';          
           } else if (NN.includes('Tv')) {
     FULL.style.display = 'none';
   Pantalla.style.display = 'block';
@@ -302,7 +314,19 @@ if (PP.src !== "" && PP.style.display !== 'none') {
 buscador.classList.add('PlaceHolder');
           audio.pause();
 Pantalla.style.background = 'black';
-            } else if (NN.includes('Tv')) {
+            } else if (ENLACE.includes('play.vidyard')) {
+    FULL.style.display = 'none';
+  Pantalla.style.display = 'block';
+    PP.style.display = 'none';  
+     Pantalla.src = ENLACE; 
+       buscador.value = '';          
+    Lista.style.display = 'none';
+    buscador.placeholder = inputValue;  
+    mostrarDetallesOMDb(matchedItem.textContent);
+buscador.classList.add('PlaceHolder');     
+        audio.pause();
+Pantalla.style.background = 'black';          
+          } else if (NN.includes('Tv')) {
    FULL.style.display = 'none';
   Pantalla.style.display = 'block';
      PP.style.display = 'none';   
