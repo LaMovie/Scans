@@ -118,7 +118,7 @@ Pantalla.style.background = 'black';
     // Elegir dominio según dispositivo
     var domain = isMobile ? 'https://latino.solo-latino.com/es/search?keyword=' : 'https://h5.swplayer.com/es/search?keyword=';
     
-    window.location.href = 'go:GOOGLE';
+    window.location.href = 'go:SET';
        buscador.value = '';
     };
 
