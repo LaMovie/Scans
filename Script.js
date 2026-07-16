@@ -97,7 +97,13 @@ buscador.classList.add('PlaceHolder');
         audio.pause();
 Pantalla.style.background = 'black';
            } else {
-    window.location.href = matchedItem.href;
+   var isMobile = /Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);   
+  
+ var TITULO = buscador.value.replace('🍿', '');
+   
+     var domain = !isMobile ? 'https://www.google.com/search?q=site:sololatino.net+' + TITULO : matchedItem.href;
+   
+  window.location.href = domain;
          audio.pause();
          buscador.value = '';
       }
@@ -111,16 +117,9 @@ Pantalla.style.background = 'black';
 
     
        function Check() {
-   var isMobile = /Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
    
-   var URL = [ "https://latino.solo-latino.com/es/search?keyword=", "https://ver.123pelicula.com/es/search?keyword=", "https://flixlat.com/es/search?keyword=",  "https://video.playspelis.com/es/search?keyword=",  "https://ww1.123flmsfree.com/es/search?keyword="];
- 
- var STREAMs = Math.floor(Math.random() * URL.length);
-    
-    // Elegir dominio según dispositivo
-    var domain = isMobile ? 'https://latino.solo-latino.com/es/search?keyword=' : 'https://h5.swplayer.com/es/search?keyword=';
-    
-    window.location.href = domain + buscador.value;
+   var TITULO = buscador.value.replace('🍿', '');
+    window.location.href = 'https://www.google.com/search?q=site:sololatino.net+' + TITULO;
        buscador.value = '';
     };
 
