@@ -54,6 +54,8 @@ if (Pantalla.src !== "" && Pantalla.style.display !== 'none') {
 if (PP.src !== "" && PP.style.display !== 'none') {
   PP.src = 'about:blank'; // Detener embed
 }   
+
+  var CADENA = ['play.vidyard', 'dropboxuser'];
       
       if (ENLACE.includes('file')) {
    var URL = ENLACE.split('view?usp')[0]; // Obtiene parte anterior a 'view?usp=drive'
@@ -70,7 +72,7 @@ if (PP.src !== "" && PP.style.display !== 'none') {
 buscador.classList.add('PlaceHolder'); 
          audio.pause();
 Pantalla.style.background = 'black';
-          } else if (ENLACE.includes('play.vidyard')) {
+          } else if (CADENA.some(dominio => ENLACE.includes(dominio))) {
     FULL.style.display = 'none';
   Pantalla.style.display = 'block';
     PP.style.display = 'none';  
@@ -118,7 +120,7 @@ Pantalla.style.background = 'black';
     // Elegir dominio según dispositivo
     var domain = isMobile ? 'https://latino.solo-latino.com/es/search?keyword=' : 'https://h5.swplayer.com/es/search?keyword=';
     
-    window.location.href = 'go:SET';
+    window.location.href = domain + buscador.value;
        buscador.value = '';
     };
 
@@ -283,7 +285,8 @@ h1 {
      
   var Lista = document.getElementById('Lista');
  var PP = document.querySelector('.Pantalla');  
- 
+
+    // MANEJO DEL CLICK
 Lista.addEventListener('click', (event) => {
  if (event.target.tagName === 'A') {
     event.preventDefault(); 
@@ -298,6 +301,7 @@ if (Pantalla.src !== "" && Pantalla.style.display !== 'none') {
 if (PP.src !== "" && PP.style.display !== 'none') {
   PP.src = 'about:blank'; // Detener embed
 }
+    var CADENA = ['play.vidyard', 'dropboxuser'];
   
   if (ENLACE.includes('file')) {
   var URL = ENLACE.split('view?usp')[0];
@@ -314,7 +318,7 @@ if (PP.src !== "" && PP.style.display !== 'none') {
 buscador.classList.add('PlaceHolder');
           audio.pause();
 Pantalla.style.background = 'black';
-            } else if (ENLACE.includes('play.vidyard')) {
+           } else if (CADENA.some(dominio => ENLACE.includes(dominio))) {
     FULL.style.display = 'none';
   Pantalla.style.display = 'block';
     PP.style.display = 'none';  
