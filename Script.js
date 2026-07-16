@@ -111,16 +111,20 @@ Pantalla.style.background = 'black';
            Check();
       Lista.style.display = 'none';
       No.style.display = "none";
+      buscador.value = '';
     }
   }      
 });
 
     
        function Check() {
-   
+    var isMobile = /Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);  
+      
    var TITULO = buscador.value.replace('🍿', '');
-    window.location.href = 'https://www.google.com/search?q=site:sololatino.net+' + TITULO;
-       buscador.value = '';
+   
+   var domain = !isMobile ? 'https://www.google.com/search?q=site:sololatino.net+' + TITULO : 'go:GOOGLE';
+   
+  window.location.href = domain;     
     };
 
 
