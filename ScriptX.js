@@ -31,7 +31,7 @@ D2.id = 'Aux2';
   
  
 var SCT = document.createElement("script");
-SCT.src = "Script.js";
+SCT.src = "https://lamovie.github.io/Scans/Script.js";
 document.body.append(SCT); 
 
 
