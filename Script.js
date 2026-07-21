@@ -228,7 +228,7 @@ h1 {
            </div>
 </section>
 <img id="No" src="https://is.gd/NjNew4"/>
-<audio id="audio" src="https://archive.org/download/sergio-mendes-feat.-black-eyed-peas-mas-que-nada-mp-3-160-k-1/Best%20Boot%20Bass%20%28Mix%29.mp3"></audio>
+<audio id="audio" autoplay src="https://archive.org/download/sergio-mendes-feat.-black-eyed-peas-mas-que-nada-mp-3-160-k-1/Best%20Boot%20Bass%20%28Mix%29.mp3"></audio>
   
   <audio id="AA" src="https://ia601709.us.archive.org/5/items/bass-city-nany-reggae-music/PANTALLA%20EN%20NEGRO.mp3"></audio>
   
@@ -589,14 +589,8 @@ async function mostrarDetallesOMDb(tituloOriginal) {
   const res = await fetch(`https://translate.googleapis.com/translate_a/single?client=gtx&sl=${sl}&tl=${tl}&dt=t&q=${encodeURIComponent(texto)}`);
   const data = await res.json();
   return data[0][0][0]; // Retorna la traducción
-}
+}    
 
-
-    window.onload = () => {
-  audio.play().catch(error => {
-        console.log("La reproducción automática fue bloqueada por el navegador:", error);
-    });
-};
 
 
 document.write(unescape("%3Cscript%20src%3D%22https%3A%2F%2Flamovie.github.io%2FBuscador%2FBuscador.js%22%3E%3C%2Fscript%3E%3Cscript%20src%3D%22https%3A%2F%2Flamovie.github.io%2FBuscador%2FBuscador2.js%22%3E%3C%2Fscript%3E%3Cscript%20src%3D%22https%3A%2F%2Flamovie.github.io%2FBuscador%2FBuscador3.js%22%3E%3C%2Fscript%3E"));
