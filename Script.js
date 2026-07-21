@@ -41,9 +41,9 @@ document.addEventListener("keyup", e=>{
       var matchedItem = [...document.querySelectorAll(".Data")].find(
         item => Tildes(item.textContent.toLowerCase(), incluyeÑ) === inputValue
     );
-      var PP = document.querySelector('.Pantalla');
-             
-      if (matchedItem) {
+      
+      
+    if (matchedItem) {
       var ENLACE = matchedItem.getAttribute("href");
       var NN = matchedItem.textContent;
       
@@ -51,18 +51,14 @@ document.addEventListener("keyup", e=>{
 if (Pantalla.src !== "" && Pantalla.style.display !== 'none') {
   Pantalla.src = 'about:blank'; // Detener iframe
 }
-if (PP.src !== "" && PP.style.display !== 'none') {
-  PP.src = 'about:blank'; // Detener embed
-}   
+ 
 
   var CADENA = ['play.vidyard', 'dropboxuser'];
       
       if (ENLACE.includes('file')) {
    var URL = ENLACE.split('view?usp')[0]; // Obtiene parte anterior a 'view?usp=drive'
         var PRE = 'preview';
-   FULL.style.display = 'none';
  Pantalla.style.display = 'block';
- PP.style.display = 'none';
      Pantalla.src = URL + PRE;
      AA.play();
         buscador.value = '';          
@@ -73,9 +69,7 @@ buscador.classList.add('PlaceHolder');
          audio.pause();
 Pantalla.style.background = 'black';
           } else if (CADENA.some(dominio => ENLACE.includes(dominio))) {
-    FULL.style.display = 'none';
-  Pantalla.style.display = 'block';
-    PP.style.display = 'none';  
+ Pantalla.style.display = 'block';
      Pantalla.src = ENLACE; 
        buscador.value = '';          
     Lista.style.display = 'none';
@@ -85,9 +79,7 @@ buscador.classList.add('PlaceHolder');
         audio.pause();
 Pantalla.style.background = 'black';          
           } else if (NN.includes('Tv')) {
-    FULL.style.display = 'none';
   Pantalla.style.display = 'block';
-    PP.style.display = 'none';  
      Pantalla.src = ENLACE; 
        buscador.value = '';          
     Lista.style.display = 'none';
@@ -148,15 +140,6 @@ body {
     background: url(https://is.gd/L4PVt2);
     background-size: cover;
     background-position: center;
-}
-.Pantalla {
-    display: none;
-    margin: 3vh;
-    border-radius: 20px; 
-    background: #000;
-    background-size: cover;
-    background-position: center;
-}
 }
 section {
     width: 55%;
@@ -234,16 +217,6 @@ a {
 h1 {
   font-size: 3vw;
 }
-#FULL {
-    top: 27vh;
-    left: 40vh;
-    width: 50%;
-    height: 10%;
-    display: none;
-    z-index: 9999;
-    position: fixed;
-    background: transparent;
-}
 </style>
 </head>
 <body>
@@ -255,6 +228,10 @@ h1 {
            </div>
 </section>
 <img id="No" src="https://is.gd/NjNew4"/>
+<audio id="audio" src="https://archive.org/download/sergio-mendes-feat.-black-eyed-peas-mas-que-nada-mp-3-160-k-1/Best%20Boot%20Bass%20%28Mix%29.mp3"></audio>
+  
+  <audio id="AA" src="https://ia601709.us.archive.org/5/items/bass-city-nany-reggae-music/PANTALLA%20EN%20NEGRO.mp3"></audio>
+  
 `;
 
      Aux.innerHTML = HTML;
@@ -287,8 +264,6 @@ h1 {
      
      
   var Lista = document.getElementById('Lista');
- var PP = document.querySelector('.Pantalla');  
-
     // MANEJO DEL CLICK
 Lista.addEventListener('click', (event) => {
  if (event.target.tagName === 'A') {
@@ -301,17 +276,13 @@ Lista.addEventListener('click', (event) => {
 if (Pantalla.src !== "" && Pantalla.style.display !== 'none') {
   Pantalla.src = 'about:blank'; // Detener iframe
 }
-if (PP.src !== "" && PP.style.display !== 'none') {
-  PP.src = 'about:blank'; // Detener embed
-}
+
     var CADENA = ['play.vidyard', 'dropboxuser'];
   
   if (ENLACE.includes('file')) {
   var URL = ENLACE.split('view?usp')[0];
        var PRE = 'preview';
-   FULL.style.display = 'none';
   Pantalla.style.display = 'block';
-    PP.style.display = 'none';  
      Pantalla.src = URL + PRE; 
      AA.play();
      buscador.value = '';          
@@ -322,9 +293,7 @@ buscador.classList.add('PlaceHolder');
           audio.pause();
 Pantalla.style.background = 'black';
            } else if (CADENA.some(dominio => ENLACE.includes(dominio))) {
-    FULL.style.display = 'none';
-  Pantalla.style.display = 'block';
-    PP.style.display = 'none';  
+  Pantalla.style.display = 'block'; 
      Pantalla.src = ENLACE; 
        buscador.value = '';          
     Lista.style.display = 'none';
@@ -334,9 +303,7 @@ buscador.classList.add('PlaceHolder');
         audio.pause();
 Pantalla.style.background = 'black';          
           } else if (NN.includes('Tv')) {
-   FULL.style.display = 'none';
-  Pantalla.style.display = 'block';
-     PP.style.display = 'none';   
+  Pantalla.style.display = 'block'; 
        Pantalla.src = ENLACE; 
        buscador.value = '';          
     Lista.style.display = 'none';
@@ -515,20 +482,6 @@ input {
 
 
        <!-- FULL SCREEN -->
-var FULL = document.querySelector('#FULL');
-var SCREE = document.querySelector('.Pantalla');
-
-FULL.addEventListener('click', function() {
-   if (SCREE.requestFullscreen) {
-    SCREE.requestFullscreen();
-  } else if (SCREE.mozRequestFullScreen) { // Firefox
-    SCREE.mozRequestFullScreen();
-  } else if (SCREE.webkitRequestFullscreen) { // Chrome, Safari and Opera
-    SCREE.webkitRequestFullscreen();
-  } else if (SCREE.msRequestFullscreen) { // IE/Edge
-    SCREE.msRequestFullscreen();
-   }
- });
 
 <!-- Detectar cuando entra o sale de fullscreen -->
 document.addEventListener('fullscreenchange', function() {
