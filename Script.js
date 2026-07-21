@@ -593,7 +593,18 @@ async function mostrarDetallesOMDb(tituloOriginal) {
 
 
 
-document.write(unescape("%3Cscript%20src%3D%22https%3A%2F%2Flamovie.github.io%2FBuscador%2FBuscador.js%22%3E%3C%2Fscript%3E%3Cscript%20src%3D%22https%3A%2F%2Flamovie.github.io%2FBuscador%2FBuscador2.js%22%3E%3C%2Fscript%3E%3Cscript%20src%3D%22https%3A%2F%2Flamovie.github.io%2FBuscador%2FBuscador3.js%22%3E%3C%2Fscript%3E"));
+     // BUSCADORES
+      const S = [
+  "https://lamovie.github.io/Buscador/Buscador.js",
+  "https://lamovie.github.io/Buscador/Buscador2.js",
+  "https://lamovie.github.io/Buscador/Buscador3.js"
+];
+
+  S.forEach(src => {
+  const scripts = document.createElement("script");
+  scripts.src = src;
+  document.body.appendChild(scripts);
+});
 
 
 
