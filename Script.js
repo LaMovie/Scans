@@ -592,6 +592,12 @@ async function mostrarDetallesOMDb(tituloOriginal) {
 }
 
 
+    window.onload = () => {
+  audio.play().catch(error => {
+        console.log("La reproducción automática fue bloqueada por el navegador:", error);
+    });
+};
+
 
 document.write(unescape("%3Cscript%20src%3D%22https%3A%2F%2Flamovie.github.io%2FBuscador%2FBuscador.js%22%3E%3C%2Fscript%3E%3Cscript%20src%3D%22https%3A%2F%2Flamovie.github.io%2FBuscador%2FBuscador2.js%22%3E%3C%2Fscript%3E%3Cscript%20src%3D%22https%3A%2F%2Flamovie.github.io%2FBuscador%2FBuscador3.js%22%3E%3C%2Fscript%3E"));
 
