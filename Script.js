@@ -31,80 +31,90 @@ document.addEventListener("keyup", e=>{
       });
     No.style.display = foundMatch ? "none" : "block";
   }
-    
-     <!-- Manejo del Enter -->
-  
-    if (e.key === "Enter") {
-      var Int = e.target.value.toLowerCase().trim();
-      var incluyeÑ = Int.includes("ñ");
-      var inputValue = Tildes(Int.replace(/\s+/g, ' '), incluyeÑ);
-      var matchedItem = [...document.querySelectorAll(".Data")].find(
-        item => Tildes(item.textContent.toLowerCase(), incluyeÑ) === inputValue
-    );
-      
-      
-    if (matchedItem) {
-      var ENLACE = matchedItem.getAttribute("href");
-      var NN = matchedItem.textContent;
-      
-   // DETENER REPRODUCCIÓN ANTERIOR
-if (Pantalla.src !== "" && Pantalla.style.display !== 'none') {
-  Pantalla.src = 'about:blank'; // Detener iframe
-}
- 
 
-  var CADENA = ['play.vidyard', 'dropboxuser'];
-      
-      if (ENLACE.includes('file')) {
-   var URL = ENLACE.split('view?usp')[0]; // Obtiene parte anterior a 'view?usp=drive'
-        var PRE = 'preview';
- Pantalla.style.display = 'block';
-     Pantalla.src = URL + PRE;
-     AA.play();
-        buscador.value = '';          
-    Lista.style.display = 'none';
-    buscador.placeholder = inputValue;
-    mostrarDetallesOMDb(matchedItem.textContent);
-buscador.classList.add('PlaceHolder'); 
-         audio.pause();
-Pantalla.style.background = 'black';
-          } else if (CADENA.some(dominio => ENLACE.includes(dominio))) {
- Pantalla.style.display = 'block';
-     Pantalla.src = ENLACE; 
-       buscador.value = '';          
-    Lista.style.display = 'none';
-    buscador.placeholder = inputValue;  
-    mostrarDetallesOMDb(matchedItem.textContent);
-buscador.classList.add('PlaceHolder');     
-        audio.pause();
-Pantalla.style.background = 'black';          
-          } else if (NN.includes('Tv')) {
-  Pantalla.style.display = 'block';
-     Pantalla.src = ENLACE; 
-       buscador.value = '';          
-    Lista.style.display = 'none';
-    buscador.placeholder = inputValue;  
-    mostrarDetallesOMDb(matchedItem.textContent);
-buscador.classList.add('PlaceHolder');     
-        audio.pause();
-Pantalla.style.background = 'black';
-           } else {
-   var isMobile = /Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);   
-  
- var TITULO = buscador.value.replace('🍿', '');
-   
-     var domain = !isMobile ? 'https://www.google.com/search?q=site:sololatino.net+' + TITULO : matchedItem.href;
-   
-  window.location.href = domain;
-         audio.pause();
-         buscador.value = '';
-      }
-    } else {
-           Check();
+    
+     // MANEJO DEL ENTER  
+if (e.key === "Enter") {
+  var Int = e.target.value.toLowerCase().trim();
+  var incluyeÑ = Int.includes("ñ");
+
+  var inputLimpio = Int.replace(/🍿|🌐|📺|⚙️/g, '').trim();
+  var inputValue = Tildes(inputLimpio.replace(/\s+/g, ' '), incluyeÑ);
+
+     var matchedItem = [...document.querySelectorAll(".Data")].find(item => {
+    let textoItemLimpio = item.textContent.replace(/🍿|🌐|📺|⚙️/g, '').toLowerCase().trim();
+    return Tildes(textoItemLimpio, incluyeÑ) === inputValue;        
+  });
+          
+  if (matchedItem) {
+    var ENLACE = matchedItem.getAttribute("href");
+    var NN = matchedItem.textContent;
+    
+    // DETENER REPRODUCCIÓN ANTERIOR
+    if (Pantalla.src !== "" && Pantalla.style.display !== 'none') {
+      Pantalla.src = 'about:blank';
+    }
+
+    var CADENA = ['play.vidyard', 'dropboxuser'];
+    
+    if (ENLACE.includes('file')) {
+      var URL = ENLACE.split('view?usp')[0];
+      var PRE = 'preview';
+      Pantalla.style.display = 'block';
+      Pantalla.src = URL + PRE;
+      AA.play();
+      buscador.value = '';          
       Lista.style.display = 'none';
-      No.style.display = "none";
+      buscador.placeholder = Int;
+      mostrarDetallesOMDb(matchedItem.textContent);
+      buscador.classList.add('PlaceHolder'); 
+      audio.pause();
+      Pantalla.style.background = 'black';
+
+    } else if (CADENA.some(dominio => ENLACE.includes(dominio))) {
+      Pantalla.style.display = 'block';
+      Pantalla.src = ENLACE; 
+      buscador.value = '';          
+      Lista.style.display = 'none';
+      buscador.placeholder = Int;  
+      mostrarDetallesOMDb(matchedItem.textContent);
+      buscador.classList.add('PlaceHolder');     
+      audio.pause();
+      Pantalla.style.background = 'black';          
+
+    } else if (NN.includes('Tv')) {
+      Pantalla.style.display = 'block';
+      Pantalla.src = ENLACE; 
+      buscador.value = '';          
+      Lista.style.display = 'none';
+      buscador.placeholder = Int;  
+      mostrarDetallesOMDb(matchedItem.textContent);
+      buscador.classList.add('PlaceHolder');     
+      audio.pause();
+      Pantalla.style.background = 'black';
+
+    } else if (NN.includes('🌐')) {
+      var TextLimp = NN.replace('🌐', '').trim();
+      const urlDestino = `${ENLACE}?texto=${encodeURIComponent(TextLimp)}`;
+      window.location.href = urlDestino;
+      buscador.value = '';
+
+    } else {
+      var isMobile = /Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);   
+      var TITULO = inputLimpio;
+      var domain = !isMobile ? 'https://www.google.com/search?q=site:sololatino.net+' + encodeURIComponent(TITULO) : matchedItem.href;
+      
+      window.location.href = domain;
+      audio.pause();
       buscador.value = '';
     }
+
+       } else {
+    Check();
+    Lista.style.display = 'none';
+    No.style.display = "none";
+    buscador.value = '';
+   }
   }      
 });
 
@@ -121,7 +131,7 @@ Pantalla.style.background = 'black';
 
 
 
-         <!-- HTML -->
+         // HTML 
          
  var HTML =
   `
@@ -261,67 +271,78 @@ h1 {
             Check();
       No.style.display = 'none';
      }
-     
-     
+          
   var Lista = document.getElementById('Lista');
-    // MANEJO DEL CLICK
+
+
+
+     // MANEJO DEL CLICK
 Lista.addEventListener('click', (event) => {
- if (event.target.tagName === 'A') {
+  if (event.target.tagName === 'A') {
     event.preventDefault(); 
-  var ENLACE = event.target.href;
-  var NN = event.target.textContent;
-  
-  
-  // DETENER REPRODUCCIÓN ANTERIOR
-if (Pantalla.src !== "" && Pantalla.style.display !== 'none') {
-  Pantalla.src = 'about:blank'; // Detener iframe
-}
+    var ENLACE = event.target.href;
+    var NN = event.target.textContent;
+    
+    // DETENER REPRODUCCIÓN ANTERIOR
+    if (Pantalla.src !== "" && Pantalla.style.display !== 'none') {
+      Pantalla.src = 'about:blank';
+    }
 
     var CADENA = ['play.vidyard', 'dropboxuser'];
   
-  if (ENLACE.includes('file')) {
-  var URL = ENLACE.split('view?usp')[0];
-       var PRE = 'preview';
-  Pantalla.style.display = 'block';
-     Pantalla.src = URL + PRE; 
-     AA.play();
-     buscador.value = '';          
-    Lista.style.display = 'none';
-    buscador.placeholder = event.target.textContent;
-    mostrarDetallesOMDb(event.target.textContent);
-buscador.classList.add('PlaceHolder');
-          audio.pause();
-Pantalla.style.background = 'black';
-           } else if (CADENA.some(dominio => ENLACE.includes(dominio))) {
-  Pantalla.style.display = 'block'; 
-     Pantalla.src = ENLACE; 
-       buscador.value = '';          
-    Lista.style.display = 'none';
-    buscador.placeholder = event.target.textContent;  
-    mostrarDetallesOMDb(event.target.textContent);
-buscador.classList.add('PlaceHolder');     
-        audio.pause();
-Pantalla.style.background = 'black';          
-          } else if (NN.includes('Tv')) {
-  Pantalla.style.display = 'block'; 
-       Pantalla.src = ENLACE; 
-       buscador.value = '';          
-    Lista.style.display = 'none';
-    buscador.placeholder = event.target.textContent;  
-    mostrarDetallesOMDb(event.target.textContent);
-buscador.classList.add('PlaceHolder');     
-          audio.pause();
-Pantalla.style.background = 'black';
-            } else {
-   window.location.href = ENLACE;
-          audio.pause();
-          buscador.value = '';
+    if (ENLACE.includes('file')) {
+      var URL = ENLACE.split('view?usp')[0];
+      var PRE = 'preview';
+      Pantalla.style.display = 'block';
+      Pantalla.src = URL + PRE; 
+      AA.play();
+      buscador.value = '';          
+      Lista.style.display = 'none';
+      buscador.placeholder = event.target.textContent;
+      mostrarDetallesOMDb(event.target.textContent);
+      buscador.classList.add('PlaceHolder');
+      audio.pause();
+      Pantalla.style.background = 'black';
+
+    } else if (CADENA.some(dominio => ENLACE.includes(dominio))) {
+      Pantalla.style.display = 'block'; 
+      Pantalla.src = ENLACE; 
+      buscador.value = '';          
+      Lista.style.display = 'none';
+      buscador.placeholder = event.target.textContent;  
+      mostrarDetallesOMDb(event.target.textContent);
+      buscador.classList.add('PlaceHolder');     
+      audio.pause();
+      Pantalla.style.background = 'black';          
+
+    } else if (NN.includes('Tv')) {
+      Pantalla.style.display = 'block'; 
+      Pantalla.src = ENLACE; 
+      buscador.value = '';          
+      Lista.style.display = 'none';
+      buscador.placeholder = event.target.textContent;  
+      mostrarDetallesOMDb(event.target.textContent);
+      buscador.classList.add('PlaceHolder');     
+      audio.pause();
+      Pantalla.style.background = 'black';
+
+    } else if (NN.includes('🌐')) {
+        var TextLimp = NN.replace('🌐', '').trim();
+      const urlDestino = `${ENLACE}?texto=${encodeURIComponent(TextLimp)}`;
+      window.location.href = urlDestino;
+      buscador.value = '';
+
+    } else {
+      window.location.href = ENLACE;
+      audio.pause();
+      buscador.value = '';
     } 
   }
-});   
+});
+
      
 
-        <!-- HORIZONTAL -->
+        // HORIZONTAL
 
         function Handle() {
             var orientation = (window.innerWidth > window.innerHeight) ? evento() : invento();        
@@ -477,22 +498,22 @@ input {
 
  window.addEventListener("resize", Handle);
 
-  <!-- Llama a la función al cargar la página para establecer el estado inicial -->
+  // Llama a la función al cargar la página para establecer el estado inicial 
       Handle();
 
 
-       <!-- FULL SCREEN -->
+       // FULL SCREEN 
 
-<!-- Detectar cuando entra o sale de fullscreen -->
+// Detectar cuando entra o sale de fullscreen 
 document.addEventListener('fullscreenchange', function() {
   if (document.fullscreenElement) {
-    <!-- Si estamos en pantalla completa, bloquear orientación horizontal -->
+    // Si estamos en pantalla completa, bloquear orientación horizontal 
     if (screen.orientation && screen.orientation.lock) {
       screen.orientation.lock('landscape');
       Pantalla.style.scale = '100%';
     }
   } else {
-    <!-- Si salimos de pantalla completa, volver a orientación vertical -->
+    // Si salimos de pantalla completa, volver a orientación vertical 
     if (screen.orientation && screen.orientation.lock) {
       screen.orientation.lock('portrait');
     }
@@ -516,7 +537,7 @@ document.addEventListener('fullscreenchange', function() {
   };    
      
 
-      <!-- FICHA TÉCNICA -->
+      // FICHA TÉCNICA 
      // --- MODIFICAR LA FUNCIÓN traducir ---
 async function traducir(texto, sl = 'en', tl = 'es') {
   // sl = Source Language (idioma de origen), tl = Target Language (idioma de destino)
@@ -583,7 +604,7 @@ async function mostrarDetallesOMDb(tituloOriginal) {
 
 
 
-        <!-- TRADUCTOR -->
+        // TRADUCTOR 
     async function traducir(texto, sl = 'en', tl = 'es') {
   // sl = Source Language (idioma de origen), tl = Target Language (idioma de destino)
   const res = await fetch(`https://translate.googleapis.com/translate_a/single?client=gtx&sl=${sl}&tl=${tl}&dt=t&q=${encodeURIComponent(texto)}`);
@@ -593,7 +614,7 @@ async function mostrarDetallesOMDb(tituloOriginal) {
 
 
 
-     // BUSCADORES
+   // BUSCADORES
       const S = [
   "https://lamovie.github.io/Buscador/Buscador.js",
   "https://lamovie.github.io/Buscador/Buscador2.js",
