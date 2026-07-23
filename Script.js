@@ -55,7 +55,7 @@ if (e.key === "Enter") {
       Pantalla.src = 'about:blank';
     }
 
-    var CADENA = ['play.vidyard', 'dropboxuser'];
+    var CADENA = ['play.vidyard', 'dropbox.com'];
     
     if (ENLACE.includes('file')) {
       var URL = ENLACE.split('view?usp')[0];
@@ -73,7 +73,7 @@ if (e.key === "Enter") {
 
     } else if (CADENA.some(dominio => ENLACE.includes(dominio))) {
       Pantalla.style.display = 'block';
-      Pantalla.src = ENLACE; 
+      Pantalla.src = ENLACE.replace('www.dropbox.com', 'dl.dropboxusercontent.com'); 
       buscador.value = '';          
       Lista.style.display = 'none';
       buscador.placeholder = Int;  
@@ -288,7 +288,7 @@ Lista.addEventListener('click', (event) => {
       Pantalla.src = 'about:blank';
     }
 
-    var CADENA = ['play.vidyard', 'dropboxuser'];
+    var CADENA = ['play.vidyard', 'dropbox.com'];
   
     if (ENLACE.includes('file')) {
       var URL = ENLACE.split('view?usp')[0];
@@ -306,7 +306,7 @@ Lista.addEventListener('click', (event) => {
 
     } else if (CADENA.some(dominio => ENLACE.includes(dominio))) {
       Pantalla.style.display = 'block'; 
-      Pantalla.src = ENLACE; 
+      Pantalla.src = ENLACE.replace('www.dropbox.com', 'dl.dropboxusercontent.com'); 
       buscador.value = '';          
       Lista.style.display = 'none';
       buscador.placeholder = event.target.textContent;  
