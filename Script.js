@@ -124,7 +124,9 @@ if (e.key === "Enter") {
       
    var TITULO = buscador.value.replace('🍿', '');
    
-   var domain = !isMobile ? 'https://www.google.com/search?q=site:sololatino.net+' + TITULO : 'go:GOOGLE';
+   const urlDestino = `${'GOOGLE.html'}?texto=${TITULO}`;
+  
+   var domain = !isMobile ? 'https://www.google.com/search?q=site:sololatino.net+' + TITULO : urlDestino;
    
   window.location.href = domain;     
     };
