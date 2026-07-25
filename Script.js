@@ -124,7 +124,7 @@ if (e.key === "Enter") {
       
    var TITULO = buscador.value.replace('🍿', '');
    
-   const urlDestino = `${'GOOGLE.html'}?texto=${TITULO}`;
+   const urlDestino = `${'https://lamovie.github.io/La-Movie-Delux/GOOGLE.html'}?texto=${TITULO}`;
   
    var domain = !isMobile ? 'https://www.google.com/search?q=site:sololatino.net+' + TITULO : urlDestino;
    
