@@ -55,7 +55,7 @@ if (e.key === "Enter") {
       Pantalla.src = 'about:blank';
     }
 
-    var CADENA = ['play.vidyard', 'dropbox.com'];
+    var CADENA = ['play.vidyard', 'dropbox.com', 'okpeliz.com'];
     
     if (ENLACE.includes('file')) {
       var URL = ENLACE.split('view?usp')[0];
@@ -290,7 +290,7 @@ Lista.addEventListener('click', (event) => {
       Pantalla.src = 'about:blank';
     }
 
-    var CADENA = ['play.vidyard', 'dropbox.com'];
+    var CADENA = ['play.vidyard', 'dropbox.com', 'okpeliz.com'];
   
     if (ENLACE.includes('file')) {
       var URL = ENLACE.split('view?usp')[0];
