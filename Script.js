@@ -15,10 +15,13 @@ document.addEventListener("keyup", e=>{
       let foundMatch = false;
       var Input = Tildes(In.replace(/\s+/g, ' '), incluyeÑ);
  
+ 
+    
   if (e.target.matches("#buscador")){          
    
       Lista.style.display = Input === '' ? "none" : "block"; 
-     Aux2.style.display = 'none'; 
+      
+     Aux2.style.display = Input === '' ? 'block' : 'none'; 
  
   Data.forEach(item => {
     let itemText = Tildes(item.textContent.toLowerCase(), incluyeÑ);    
@@ -66,7 +69,7 @@ if (e.key === "Enter") {
       buscador.value = '';          
       Lista.style.display = 'none';
       buscador.placeholder = Int;
-      mostrarDetallesOMDb(matchedItem.textContent);
+      mostrarDetallesTMDB(matchedItem.textContent);
       buscador.classList.add('PlaceHolder'); 
       audio.pause();
       Pantalla.style.background = 'black';
@@ -77,7 +80,7 @@ if (e.key === "Enter") {
       buscador.value = '';          
       Lista.style.display = 'none';
       buscador.placeholder = Int;  
-      mostrarDetallesOMDb(matchedItem.textContent);
+      mostrarDetallesTMDB(matchedItem.textContent);
       buscador.classList.add('PlaceHolder');     
       audio.pause();
       Pantalla.style.background = 'black';          
@@ -88,7 +91,7 @@ if (e.key === "Enter") {
       buscador.value = '';          
       Lista.style.display = 'none';
       buscador.placeholder = Int;  
-      mostrarDetallesOMDb(matchedItem.textContent);
+      mostrarDetallesTMDB(matchedItem.textContent);
       buscador.classList.add('PlaceHolder');     
       audio.pause();
       Pantalla.style.background = 'black';
@@ -143,9 +146,25 @@ body {
       background: #000;
       position: fixed;      
 }
-#Aux, #Aux2 {
+#Aux {
       margin: 10vh;
-}   
+} 
+#Aux2 {
+    width: 120%;
+    margin-left: -5vh;
+}  
+#S {
+    height: 20vh;  
+    overflow-y: auto;
+    padding-right: 10px;
+}
+#S::-webkit-scrollbar {
+    width: 6px;
+}
+#S::-webkit-scrollbar-thumb {    
+    background: #4f3fff;
+    border-radius: 10px;
+}
 #Pantalla {
     margin: 3vh;
     border-radius: 20px; 
@@ -301,7 +320,7 @@ Lista.addEventListener('click', (event) => {
       buscador.value = '';          
       Lista.style.display = 'none';
       buscador.placeholder = event.target.textContent;
-      mostrarDetallesOMDb(event.target.textContent);
+      mostrarDetallesTMDB(event.target.textContent);
       buscador.classList.add('PlaceHolder');
       audio.pause();
       Pantalla.style.background = 'black';
@@ -312,7 +331,7 @@ Lista.addEventListener('click', (event) => {
       buscador.value = '';          
       Lista.style.display = 'none';
       buscador.placeholder = event.target.textContent;  
-      mostrarDetallesOMDb(event.target.textContent);
+      mostrarDetallesTMDB(event.target.textContent);
       buscador.classList.add('PlaceHolder');     
       audio.pause();
       Pantalla.style.background = 'black';          
@@ -323,7 +342,7 @@ Lista.addEventListener('click', (event) => {
       buscador.value = '';          
       Lista.style.display = 'none';
       buscador.placeholder = event.target.textContent;  
-      mostrarDetallesOMDb(event.target.textContent);
+      mostrarDetallesTMDB(event.target.textContent);
       buscador.classList.add('PlaceHolder');     
       audio.pause();
       Pantalla.style.background = 'black';
@@ -363,7 +382,6 @@ Lista.addEventListener('click', (event) => {
     margin: 3vh;
     border-radius: 20px; 
     background: url(https://is.gd/L4PVt2);
-    /*https://bit.ly/49X0ijf*/
     background-size: cover;
     background-position: center;
 }
@@ -439,7 +457,6 @@ input {
     margin: 3vh;
     border-radius: 20px; 
     background: url(https://is.gd/L4PVt2);
-    /*https://bit.ly/49X0ijf*/
     background-size: cover;
     background-position: center;
 }
@@ -499,23 +516,17 @@ input {
 }
 
  window.addEventListener("resize", Handle);
-
-  // Llama a la función al cargar la página para establecer el estado inicial 
-      Handle();
+ Handle();
 
 
        // FULL SCREEN 
-
-// Detectar cuando entra o sale de fullscreen 
 document.addEventListener('fullscreenchange', function() {
   if (document.fullscreenElement) {
-    // Si estamos en pantalla completa, bloquear orientación horizontal 
     if (screen.orientation && screen.orientation.lock) {
       screen.orientation.lock('landscape');
       Pantalla.style.scale = '100%';
     }
   } else {
-    // Si salimos de pantalla completa, volver a orientación vertical 
     if (screen.orientation && screen.orientation.lock) {
       screen.orientation.lock('portrait');
     }
@@ -539,80 +550,59 @@ document.addEventListener('fullscreenchange', function() {
   };    
      
 
-      // FICHA TÉCNICA 
-     // --- MODIFICAR LA FUNCIÓN traducir ---
-async function traducir(texto, sl = 'en', tl = 'es') {
-  // sl = Source Language (idioma de origen), tl = Target Language (idioma de destino)
-  if (!texto) return ''; // Manejar caso de texto vacío
-  try {
-    const res = await fetch(`https://translate.googleapis.com/translate_a/single?client=gtx&sl=${sl}&tl=${tl}&dt=t&q=${encodeURIComponent(texto)}`);
-    const data = await res.json();
-    // La respuesta de esta API es un array anidado, el resultado es data[0][0][0]
-    return data[0][0][0];
-  } catch (error) {
-    console.error(`Error al traducir de ${sl} a ${tl}:`, error);
-    return texto; // Devolver el texto original en caso de error
-  }
-}
-
-// --- MODIFICAR LA FUNCIÓN mostrarDetallesOMDb ---
-async function mostrarDetallesOMDb(tituloOriginal) {
+      // --- FICHA TÉCNICA CON TMDB API ---
+async function mostrarDetallesTMDB(tituloOriginal) {
   Aux2.style.display = 'block';
-  var API_KEY = "e29e6334";
-  var tituloLimpio = tituloOriginal.replace(/^🍿|📺|⚙️/, '').trim(); // Limpiar prefijos de emoji
+  var API_KEY = "2c0b94c5ec729e2cc59b8be6ad7b2159"; // Tu API Key limpia de TMDb
+  var tituloLimpio = tituloOriginal.replace(/^🍿|📺|⚙️/, '').trim(); // Limpiar emojis
 
   try {
-    // 1. Pre-traducir el título buscado de ES a EN para la consulta a OMDb
-    var queryOMDb = await traducir(tituloLimpio, 'es', 'en');
-    // Si la traducción resulta en el mismo texto (probablemente ya estaba en inglés o es un título ambiguo),
-    // se mantiene la query original para evitar errores.
-    if (queryOMDb === tituloLimpio || !queryOMDb) {
-        queryOMDb = tituloLimpio;
-    }
+    // Buscar la película directamente en español en TMDb
+    var searchUrl = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${encodeURIComponent(tituloLimpio)}&language=es-ES`;
+    var response = await fetch(searchUrl);
+    var data = await response.json();
 
-    // 2. Consultar OMDb con el título traducido a inglés (o el original si ya lo estaba)
-    var res = await fetch(`https://www.omdbapi.com/?t=${encodeURIComponent(queryOMDb)}&apikey=${API_KEY}`);
-    var data = await res.json();
+    if (data.results && data.results.length > 0) {
+      var peli = data.results[0];
+      var movieId = peli.id;
 
-    if (data.Response === "True") {
-      // 3. Post-traducir los resultados relevantes de EN a ES para la visualización
-      var [titulo, genero, director, sinopsis] = await Promise.all([
-        traducir(data.Title, 'en', 'es'),
-        traducir(data.Genre, 'en', 'es'),
-        traducir(data.Director, 'en', 'es'),
-        traducir(data.Plot, 'en', 'es')
-      ]);
+      // Obtener detalles completos incluyendo director y equipo técnico
+      var detailUrl = `https://api.themoviedb.org/3/movie/${movieId}?api_key=${API_KEY}&language=es-ES&append_to_response=credits`;
+      var detailRes = await fetch(detailUrl);
+      var detailData = await detailRes.json();
 
+      var titulo = detailData.title;
+      var año = detailData.release_date ? detailData.release_date.split('-')[0] : "N/A";
+      var sinopsis = detailData.overview || "No hay sinopsis disponible.";
+      var genero = detailData.genres && detailData.genres.length > 0 
+          ? detailData.genres.map(g => g.name).join(", ") 
+          : "Desconocido";
+      
+      var directorObj = detailData.credits.crew.find(miembro => miembro.job === "Director");
+      var director = directorObj ? directorObj.name : "Desconocido";
+      var poster = detailData.poster_path ? "https://image.tmdb.org/t/p/w500" + detailData.poster_path : "";
+
+      // Inyectar con el contenedor #S que tiene scroll integrado y se adapta a tu diseño
       Aux2.innerHTML = `
         <div style="padding: 1em; background: #111; color: white; border-radius: 10px; max-width: 600px; margin: 1vh -8vh; scale: 50%;">
-          <img src="${data.Poster !== "N/A" ? data.Poster : ''}" alt="${titulo}" style="width: 150px; float: left; margin-right: 1em; border-radius: 10px;">
-          <h2>${titulo} (${data.Year})</h2>
-          <p><strong>Género:</strong> ${genero}</p>
-          <p><strong>Director:</strong> ${director}</p>
-          <p><strong>Sinopsis:</strong> ${sinopsis}</p>
+          <img src="${poster}" alt="${titulo}" style="width: 150px; float: left; margin-right: 1em; border-radius: 10px;">
+          <h2>${titulo} (${año})</h2>
+          <p><strong>🎬 Género:</strong> ${genero}</p>
+          <p><strong>🎥 Director:</strong> ${director}</p>
+          <div id="S">
+              <p><strong>📝 Sinopsis:</strong> ${sinopsis}</p>
+          </div>
           <div style="clear: both;"></div>
         </div>
       `;
     } else {
-      // Intentar buscar directamente en OMDb si la pre-traducción falló, o si el título es en español y no se traduce bien
-      // Si el título original es muy probable que esté en inglés, no necesita esta segunda búsqueda.
       Aux2.style.display = 'none';
     }
   } catch (error) {
-    console.error("Error al buscar o traducir datos:", error);
+    console.error("Error al buscar en TMDb:", error);
     Aux2.style.display = 'none';
   }
 }
-
-
-
-        // TRADUCTOR 
-    async function traducir(texto, sl = 'en', tl = 'es') {
-  // sl = Source Language (idioma de origen), tl = Target Language (idioma de destino)
-  const res = await fetch(`https://translate.googleapis.com/translate_a/single?client=gtx&sl=${sl}&tl=${tl}&dt=t&q=${encodeURIComponent(texto)}`);
-  const data = await res.json();
-  return data[0][0][0]; // Retorna la traducción
-}    
 
 
 
@@ -628,10 +618,3 @@ async function mostrarDetallesOMDb(tituloOriginal) {
   scripts.src = src;
   document.body.appendChild(scripts);
 });
-
-
-
-
-  // https://bit.ly/3y2BVCO
-
-     
