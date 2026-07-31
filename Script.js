@@ -1,3 +1,24 @@
+function construirLista() {
+var PELIS = [...Lista1, ...Lista2, ...Lista3];
+
+var lista = document.getElementById("Lista");
+  
+// Agrega los nuevos elementos dinámicamente
+    PELIS.forEach(item => {
+  
+  var li = document.createElement("li");
+  var a = document.createElement("a");
+
+  a.href = item.URL || item.url;
+  a.textContent = item.NAME || item.name;
+  a.classList.add("Data");
+
+  li.appendChild(a);
+  lista.appendChild(li);
+});
+}
+
+
 document.addEventListener("keyup", e=>{
  
      // TILDES
@@ -14,6 +35,7 @@ document.addEventListener("keyup", e=>{
       var Data = document.querySelectorAll(".Data");
       let foundMatch = false;
       var Input = Tildes(In.replace(/\s+/g, ' '), incluyeÑ);
+ 
  
  
     
@@ -613,8 +635,23 @@ async function mostrarDetallesTMDB(tituloOriginal) {
   "https://lamovie.github.io/Buscador/Buscador3.js"
 ];
 
+let scriptsCargados = 0;
+
   S.forEach(src => {
   const scripts = document.createElement("script");
   scripts.src = src;
+  scripts.onload = () => {
+    scriptsCargados++;
+    if (scriptsCargados === S.length) {
+      construirLista();
+    }
+  };
   document.body.appendChild(scripts);
 });
+
+
+
+
+
+
+
