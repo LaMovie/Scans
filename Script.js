@@ -82,7 +82,7 @@ if (e.key === "Enter") {
 
     var CADENA = ['play.vidyard', 'dropbox.com', 'okpeliz.com'];
     
-    if (ENLACE.includes('file')) {
+    if (ENLACE.includes('google.com/file')) {
       var URL = ENLACE.split('view?usp')[0];
       var PRE = 'preview';
       Pantalla.style.display = 'block';
@@ -333,7 +333,7 @@ Lista.addEventListener('click', (event) => {
 
     var CADENA = ['play.vidyard', 'dropbox.com', 'okpeliz.com'];
   
-    if (ENLACE.includes('file')) {
+    if (ENLACE.includes('google.com/file')) {
       var URL = ENLACE.split('view?usp')[0];
       var PRE = 'preview';
       Pantalla.style.display = 'block';
