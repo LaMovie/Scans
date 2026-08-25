@@ -127,7 +127,7 @@ if (e.key === "Enter") {
     } else {
       var isMobile = /Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);   
       var TITULO = inputLimpio;
-      var domain = !isMobile ? 'https://www.google.com/search?q=site:sololatino.net+' + encodeURIComponent(TITULO) : matchedItem.href;
+      var domain = !isMobile ? ENLACE.replace('latino.solo-latino', 'h5.swplayer') : matchedItem.href;
       
       window.location.href = domain;
       audio.pause();
@@ -364,7 +364,10 @@ Lista.addEventListener('click', (event) => {
       buscador.value = '';
 
     } else {
-      window.location.href = ENLACE;
+        var isMobile = /Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);   
+      var domain = !isMobile ? ENLACE.replace('latino.solo-latino', 'h5.swplayer') : ENLACE;
+      
+      window.location.href = domain;
       audio.pause();
       buscador.value = '';
     } 
