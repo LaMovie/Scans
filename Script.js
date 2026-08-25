@@ -359,8 +359,8 @@ Lista.addEventListener('click', (event) => {
 
     } else if (NN.includes('🌐')) {
         var TextLimp = NN.replace('🌐', '').trim();
-      const urlDestino = `${ENLACE}?texto=${encodeURIComponent(TextLimp)}`;
-      window.location.href = urlDestino;
+    
+     abrirFuera(`${ENLACE}?texto=${encodeURIComponent(TextLimp)}`);
       buscador.value = '';
 
     } else {
