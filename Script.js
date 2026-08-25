@@ -120,8 +120,8 @@ if (e.key === "Enter") {
 
     } else if (NN.includes('🌐')) {
       var TextLimp = NN.replace('🌐', '').trim();
-      const urlDestino = `${ENLACE}?texto=${encodeURIComponent(TextLimp)}`;
-      window.location.href = urlDestino;
+      
+   abrirFuera(`${ENLACE}?texto=${encodeURIComponent(TextLimp)}`);
       buscador.value = '';
 
     } else {
@@ -607,7 +607,17 @@ async function mostrarDetallesTMDB(tituloOriginal) {
 
 
 
-   // BUSCADORES
+          // INTENT
+function abrirFuera(urlDestino) {
+     var urlSinProtocolo = urlDestino.replace("https://", "");
+      
+      var intentURL = "intent://" + urlSinProtocolo + "#Intent;scheme=https;action=android.intent.action.VIEW;end;";
+      
+ window.location.href = intentURL;
+    }
+
+  
+          // BUSCADORES
       const S = [
   "https://lamovie.github.io/Buscador/Buscador.js",
   "https://lamovie.github.io/Buscador/Buscador2.js",
