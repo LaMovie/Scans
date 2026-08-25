@@ -166,14 +166,16 @@ if (e.key === "Enter") {
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 body {
       background: #000;
-      position: fixed;      
+      margin: 0;
+      overflow-x: hidden;
 }
 #Aux {
-      margin: 10vh;
+      width: 100%;
+      position: relative;
 } 
 #Aux2 {
-    width: 120%;
-    margin-left: -5vh;
+      width: 100%;
+      
 }  
 #S {
     height: 20vh;  
@@ -188,24 +190,19 @@ body {
     border-radius: 10px;
 }
 #Pantalla {
-    margin: 3vh;
     border-radius: 20px; 
     background: url(https://is.gd/L4PVt2);
     background-size: cover;
     background-position: center;
 }
 section {
-    width: 55%;
-    height: 7vh;
     display: flex;
-    position: fixed;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 input {    
     color: #fff;
-    width: 100%;
     padding: 10px;
     outline: none;
     font-weight: 600;
@@ -218,19 +215,14 @@ input {
     opacity: .7;
 }
 #Lista {
-    scale: 90%;
-    left: -3vh;
-    position: fixed;
     display: none;
     font-size: 30px;
-    margin-top: 20px;
     list-style: none;
     font-weight: 600;
     color: #fff;
     text-align: center;
     background: #000;
-    height: 40vh;
-    overflow: scroll;
+    scrollbar-width: none;
     border-radius: 20px;
 }
 li {
@@ -248,11 +240,7 @@ a {
  }
 }
 #No {
-    top: 56vh;
-    right: 10vh;
-    scale: 70%;
     display: none;
-    position: fixed;
     border-radius: 50px;
   &:hover {
       filter: hue-rotate(90deg);
@@ -395,72 +383,72 @@ Lista.addEventListener('click', (event) => {
     var style = document.createElement('style');
    style.innerHTML = `
 <style>
-#Aux {
-      margin: 10vh;
-}   
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    overflow: hidden;
+}
+center {
+    display: grid;
+    grid-template-columns: 60vw 35vw;
+    grid-template-rows: auto 1fr;
+    gap: 2vw;
+    width: 95vw;
+    align-items: start;
+    justify-items: center;
+}
 #Pantalla {
-    scale: 190%;
-    transform: translate(15vh, 10vh);
-    margin: 3vh;
-    border-radius: 20px; 
-    background: url(https://is.gd/L4PVt2);
-    background-size: cover;
-    background-position: center;
+    grid-column: 1 / 2;
+    grid-row: 1 / 3;
+    width: 100%;
+    height: 70vh;
+    margin: 0;
+    scale: 1;
+    transform: none;
+}
+br { display: none; }
+#Aux {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    width: 100%;
+    margin: 0;
+}
+#Aux2 {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    width: 100%;
+    margin: 0;
 }
 section {
-    top: 20vh;
-    right: -10vh;
-    width: 55%;
-    height: 7vh;
-    display: flex;
-    position: fixed;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    width: 100%;
+    position: static;
 }
 input {    
-    scale: 120%;
-    color: #fff;
-    width: 100%;
+    width: 90%;
     padding: 10px;
-    outline: none;
-    font-weight: 600;
-    border-radius: 20px;
-    background: transparent;
-    border: 2px solid gray;   
-}
-.PlaceHolder::placeholder {
-    color: blue;
-    opacity: .7;
+    box-sizing: border-box;
+    font-size: 1.2rem;
+    scale: 1;
 }
 #Lista {
-    scale: 90%;
-    left: 10vh;
-    position: fixed;
-    display: none;
-    font-size: 30px;
-    margin-top: 20px;
-    list-style: none;
-    font-weight: 600;
-    color: #fff;
-    text-align: center;
-    background: #000;
+    position: absolute;
+    top: 65px;
+    left: 0;
+    width: 70%;
     height: 50vh;
-    overflow: scroll;
-    scrollbar: none;
-    border-radius: 20px;
-    transform: translate(130vh, 10vh);
-}
-#Lista::-webkit-scrollbar {
-    display: none;
+    margin: 0;
+    scale: 1;
+    transform: none;
+    overflow-y: auto;
 }
 #No {
-    top: 0vh;
-    right: 25vh;
-    scale: 80%;
-    display: none;
     position: fixed;
-    transform: translate(-5vh, -30vh);
+    top: 50%;
+    right: 10vw;
+    transform: translateY(-50%);
+    scale: 80%;
 }
 </style>     
 `;        document.head.appendChild(style);
@@ -470,68 +458,59 @@ input {
    var style = document.createElement('style');
    style.innerHTML = `
 <style>
-#Aux {
-      margin: 10vh;
-}   
+body {
+    display: block;
+}
+center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+    padding-top: 2vh;
+}
 #Pantalla {
-    scale: 100%;
-    transform: translate(0vh, 0vh);
-    margin: 3vh;
-    border-radius: 20px; 
-    background: url(https://is.gd/L4PVt2);
-    background-size: cover;
-    background-position: center;
+    width: 95vw;
+    height: 35vh;
+    margin: 0;
+    scale: 1;
+    transform: none;
+}
+br { display: none; }
+#Aux {
+    width: 90vw;
+    margin: 2vh 0 0 0;
+}
+#Aux2 {
+    width: 90vw;
+    margin: 0;
 }
 section {
-    top: 50vh;
-    right: 13vh;
-    width: 55%;
-    height: 7vh;
-    display: flex;
-    position: fixed;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    width: 100%;
+    position: static;
 }
 input {    
-    scale: 100%;
-    color: #fff;
-    width: 100%;
+    width: 90%;
     padding: 10px;
-    outline: none;
-    font-weight: 600;
-    border-radius: 20px;
-    background: transparent;
-    border: 2px solid gray;   
-}
-.PlaceHolder::placeholder {
-    color: blue;
-    opacity: .7;
+    box-sizing: border-box;
+    font-size: 18px;
+    scale: 1;
 }
 #Lista {
-    scale: 90%;
-    left: -3vh;
-    position: fixed;
-    display: none;
-    font-size: 30px;
-    margin-top: 20px;
-    list-style: none;
-    font-weight: 600;
-    color: #fff;
-    text-align: center;
-    background: #000;
-    height: 40vh;
-    overflow: scroll;
-    border-radius: 20px;
-    transform: translate(0vh, 0vh);
+    position: absolute;
+    top: 65px;
+    left: 0;
+    width: 70%;
+    height: 45vh;
+    margin: 0;
+    scale: 1;
+    transform: none;
+    overflow-y: auto;
 }
 #No {
-    top: 56vh;
-    right: 25vh;
-    scale: 80%;
-    display: none;
     position: fixed;
-    transform: translate(0vh, 0vh);
+    top: 60vh;
+    right: 5vw;
+    scale: 80%;
 }
 </style>   
 `;        document.head.appendChild(style);
@@ -606,7 +585,7 @@ async function mostrarDetallesTMDB(tituloOriginal) {
 
       // Inyectar con el contenedor #S que tiene scroll integrado y se adapta a tu diseño
       Aux2.innerHTML = `
-        <div style="padding: 1em; background: #111; color: white; border-radius: 10px; max-width: 600px; margin: 1vh -8vh; scale: 50%;">
+        <div style="padding: 1em; background: #111; color: white; border-radius: 10px; width: 100%; box-sizing: border-box; margin: 0; scale: 70%;">
           <img src="${poster}" alt="${titulo}" style="width: 150px; float: left; margin-right: 1em; border-radius: 10px;">
           <h2>${titulo} (${año})</h2>
           <p><strong>🎬 Género:</strong> ${genero}</p>
@@ -648,10 +627,3 @@ let scriptsCargados = 0;
   };
   document.body.appendChild(scripts);
 });
-
-
-
-
-
-
-
