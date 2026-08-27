@@ -365,7 +365,9 @@ Lista.addEventListener('click', (event) => {
      abrirFuera(`${ENLACE}?texto=${encodeURIComponent(TextLimp)}`);
       buscador.value = '';
 
-    } else {
+    } else if (ENLACE.includes('pelisflix')) {
+  window.location.href = `https://lamovie.github.io/La-Movie-Delux/AUX.html?titulo=${NN}&url=${ENLACE}`;          
+        } else {
         var isMobile = /Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);   
       var domain = !isMobile ? ENLACE.replace('latino.solo-latino', 'h5.swplayer') : ENLACE;
       
