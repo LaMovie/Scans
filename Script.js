@@ -63,11 +63,11 @@ if (e.key === "Enter") {
   var Int = e.target.value.toLowerCase().trim();
   var incluyeÑ = Int.includes("ñ");
 
-  var inputLimpio = Int.replace(/🍿|🌐|📺|⚙️/g, '').trim();
+  var inputLimpio = Int.replace(/🍿|🌐|📺|⚙️|🧋/g, '').trim();
   var inputValue = Tildes(inputLimpio.replace(/\s+/g, ' '), incluyeÑ);
 
      var matchedItem = [...document.querySelectorAll(".Data")].find(item => {
-    let textoItemLimpio = item.textContent.replace(/🍿|🌐|📺|⚙️/g, '').toLowerCase().trim();
+    let textoItemLimpio = item.textContent.replace(/🍿|🌐|📺|⚙️|🧋/g, '').toLowerCase().trim();
     return Tildes(textoItemLimpio, incluyeÑ) === inputValue;        
   });
           
@@ -105,7 +105,11 @@ if (e.key === "Enter") {
       mostrarDetallesTMDB(matchedItem.textContent);
       buscador.classList.add('PlaceHolder');     
       audio.pause();
-      Pantalla.style.background = 'black';          
+      Pantalla.style.background = 'black';        
+      if (NN.includes('🧋')) {
+     NN = NN.replace('🧋', '');
+   window.location.href = `https://lamovie.github.io/La-Movie-Delux/PLAY.html?titulo=${NN}&url=${ENLACE}`;           
+        }  
 
     } else if (NN.includes('Tv')) {
       Pantalla.style.display = 'block';
@@ -347,6 +351,10 @@ Lista.addEventListener('click', (event) => {
       buscador.classList.add('PlaceHolder');     
       audio.pause();
       Pantalla.style.background = 'black';          
+   if (NN.includes('🧋')) {
+    NN = NN.replace('🧋', '');
+  window.location.href = `https://lamovie.github.io/La-Movie-Delux/PLAY.html?titulo=${NN}&url=${ENLACE}`;          
+        }
 
     } else if (NN.includes('Tv')) {
       Pantalla.style.display = 'block'; 
@@ -562,7 +570,7 @@ document.addEventListener('fullscreenchange', function() {
 async function mostrarDetallesTMDB(tituloOriginal) {
   Aux2.style.display = 'block';
   var API_KEY = "2c0b94c5ec729e2cc59b8be6ad7b2159"; // Tu API Key limpia de TMDb
-  var tituloLimpio = tituloOriginal.replace(/^🍿|📺|⚙️/, '').trim(); // Limpiar emojis
+  var tituloLimpio = tituloOriginal.replace(/^🍿|📺|⚙️|🧋/, '').trim(); // Limpiar emojis
 
   try {
     // Buscar la película directamente en español en TMDb
