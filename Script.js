@@ -125,7 +125,7 @@ if (e.key === "Enter") {
     } else if (NN.includes('🌐')) {
       var TextLimp = NN.replace('🌐', '').trim();
       
-   abrirFuera(`${ENLACE}?texto=${encodeURIComponent(TextLimp)}`);
+   window.location.href = `${ENLACE}?texto=${encodeURIComponent(TextLimp)}`;
       buscador.value = '';
 
     } else if (ENLACE.includes('pelisflix')) {
@@ -371,7 +371,7 @@ Lista.addEventListener('click', (event) => {
     } else if (NN.includes('🌐')) {
         var TextLimp = NN.replace('🌐', '').trim();
     
-     abrirFuera(`${ENLACE}?texto=${encodeURIComponent(TextLimp)}`);
+     window.location.href = `${ENLACE}?texto=${encodeURIComponent(TextLimp)}`;
       buscador.value = '';
 
     } else if (ENLACE.includes('pelisflix')) {
