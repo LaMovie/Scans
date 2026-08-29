@@ -419,8 +419,8 @@ center {
 #Pantalla {
     grid-column: 1 / 2;
     grid-row: 1 / 3;
-    width: 100%;
-    height: 70vh;
+    width: 80%;
+    height: auto;
     margin: 0;
     scale: 1;
     transform: none;
@@ -430,7 +430,7 @@ br { display: none; }
     grid-column: 2 / 3;
     grid-row: 1 / 2;
     width: 100%;
-    margin: 0;
+    margin-top: 8vh;
 }
 #Aux2 {
     grid-column: 2 / 3;
@@ -448,6 +448,7 @@ input {
     box-sizing: border-box;
     font-size: 1.2rem;
     scale: 1;
+    margin-top: 8vh;
 }
 #Lista {
     position: absolute;
@@ -455,7 +456,7 @@ input {
     left: 0;
     width: 70%;
     height: 50vh;
-    margin: 0;
+    margin-top: 8vh;
     scale: 1;
     transform: none;
     overflow-y: auto;
@@ -511,6 +512,7 @@ input {
     box-sizing: border-box;
     font-size: 18px;
     scale: 1;
+    margin-top: 0;
 }
 #Lista {
     position: absolute;
