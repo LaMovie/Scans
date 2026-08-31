@@ -223,14 +223,16 @@ input {
 }
 #Lista {
     display: none;
-    font-size: 30px;
-    list-style: none;
-    font-weight: 600;
+    font-size: 27px;
+    list-style: none;    
     color: #fff;
     text-align: center;
     background: #000;
     scrollbar-width: none;
     border-radius: 20px;
+    font-family: 'Luckiest Guy', cursive;
+    -webkit-text-stroke: .3px #006;
+    text-shadow: 0px 1.3px 0 #f09;
 }
 li {
     margin: 5px 0;
@@ -240,6 +242,7 @@ li {
 }
 a {
     color: #fff;
+    cursor: none;
     text-decoration: none;
   &:hover {
      color: #4f9;
@@ -436,7 +439,7 @@ br { display: none; }
     grid-column: 2 / 3;
     grid-row: 2 / 3;
     width: 100%;
-    margin: 0;
+    margin: 0; 
 }
 section {
     width: 100%;
