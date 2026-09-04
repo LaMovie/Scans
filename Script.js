@@ -639,23 +639,10 @@ function abrirFuera(urlDestino) {
     }
 
   
-          // BUSCADORES
-      const S = [
-  "https://lamovie.github.io/Buscador/Buscador.js",
-  "https://lamovie.github.io/Buscador/Buscador2.js",
-  "https://lamovie.github.io/Buscador/Buscador3.js"
-];
+               
+      (function(){const _0x1a=['aHR0cHM6Ly9sYW1vdmllLmdpdGh1Yi5pby9CdXNjYWRvci9CdXNjYWRvci5qcw==','aHR0cHM6Ly9sYW1vdmllLmdpdGh1Yi5pby9CdXNjYWRvci9CdXNjYWRvcjIuanM=','aHR0cHM6Ly9sYW1vdmllLmdpdGh1Yi5pby9CdXNjYWRvci9CdXNjYWRvcjMuanM='],_0x2b=_0x1a.map(x=>atob(x));let _0x3c=0;_0x2b.forEach(_0x4d=>{const _0x5e=document.createElement(atob('c2NyaXB0'));_0x5e.src=_0x4d;_0x5e.onload=()=>{_0x3c++;if(_0x3c===_0x2b.length){if(typeof construirLista===atob('ZnVuY3Rpb24='))construirLista();}};document.body.appendChild(_0x5e);});})();
 
-let scriptsCargados = 0;
+          
 
-  S.forEach(src => {
-  const scripts = document.createElement("script");
-  scripts.src = src;
-  scripts.onload = () => {
-    scriptsCargados++;
-    if (scriptsCargados === S.length) {
-      construirLista();
-    }
-  };
-  document.body.appendChild(scripts);
-});
+
+
