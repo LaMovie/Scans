@@ -108,7 +108,7 @@ if (e.key === "Enter") {
       Pantalla.style.background = 'black';        
       if (NN.includes('🧋')) {
      NN = NN.replace('🧋', '');
-   window.location.href = `https://lamovie.github.io/La-Movie-Delux/PLAY.html?titulo=${NN}&url=${ENLACE}`;           
+   window.location.href = `https://lamovie.github.io/La-Movie-Delux/PLAY.html?titulo=${NN}`;           
         }  
 
     } else if (NN.includes('Tv')) {
@@ -357,7 +357,7 @@ Lista.addEventListener('click', (event) => {
       Pantalla.style.background = 'black';          
    if (NN.includes('🧋')) {
     NN = NN.replace('🧋', '');
-  window.location.href = `https://lamovie.github.io/La-Movie-Delux/PLAY.html?titulo=${NN}&url=${ENLACE}`;          
+  window.location.href = `https://lamovie.github.io/La-Movie-Delux/PLAY.html?titulo=${NN}`;          
         }
 
     } else if (NN.includes('Tv')) {
