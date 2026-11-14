@@ -83,10 +83,9 @@ if (e.key === "Enter") {
     var CADENA = ['play.vidyard', 'dropbox.com', 'okpeliz.com', '.mp4'];
     
     if (ENLACE.includes('google.com/file')) {
-      var URL = ENLACE.split('view?usp')[0];
-      var PRE = 'preview';
+      var URL = ENLACE.replace(/view.*/, 'preview');
       Pantalla.style.display = 'block';
-      Pantalla.src = URL + PRE;
+      Pantalla.src = URL;
       AA.play();
       buscador.value = '';          
       Lista.style.display = 'none';
@@ -332,10 +331,9 @@ Lista.addEventListener('click', (event) => {
     var CADENA = ['play.vidyard', 'dropbox.com', 'okpeliz.com', '.mp4'];
   
     if (ENLACE.includes('google.com/file')) {
-      var URL = ENLACE.split('view?usp')[0];
-      var PRE = 'preview';
+      var URL = ENLACE.split('view?usp')[0] + 'preview';
       Pantalla.style.display = 'block';
-      Pantalla.src = URL + PRE; 
+      Pantalla.src = URL; 
       AA.play();
       buscador.value = '';          
       Lista.style.display = 'none';
