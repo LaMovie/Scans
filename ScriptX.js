@@ -19,6 +19,7 @@ F.style.width = '90%';
 F.style.height = '35vh';
 F.style.borderRadius = '20px';
 F.style.border = '2px solid blue';
+F.src = 'BLACK-BOX.png';
   document.body.append(F);
   
 var D = document.createElement("div"); 
@@ -34,7 +35,6 @@ var SCT = document.createElement("script");
 SCT.src = "https://lamovie.github.io/Scans/Script.js";
 document.body.append(SCT); 
 
-Pantalla.style.background = 'url(BLACK-BOX.png)';
 
 
 
