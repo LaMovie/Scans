@@ -197,7 +197,7 @@ body {
 }
 #Pantalla {
     border-radius: 20px; 
-    background: url(BLACK-BOX.png);
+    background: url(BOX.png);
     background-size: cover;
     background-position: center;
 }
@@ -278,7 +278,7 @@ h1 {
            </div>
 </section>
 <img id="No" src="https://is.gd/NjNew4"/>
-<audio id="audio" autoplay src="https://archive.org/download/sergio-mendes-feat.-black-eyed-peas-mas-que-nada-mp-3-160-k-1/Best%20Boot%20Bass%20%28Mix%29.mp3"></audio>
+<audio id="audio" autoplay src="https://archive.org/download/sergio-mendes-feat.-black-eyed-peas-mas-que-nada-mp-3-160-k-1/Sergio%20Mendes%20feat.%20Black%20Eyed%20Peas%20-%20Mas%20Que%20Nada%28MP3_160K%29_1.mp3"></audio>
   
   <audio id="AA" src="https://archive.org/download/bass-city-nany-reggae-music/PANTALLA%20EN%20NEGRO.mp3"></audio>
   
