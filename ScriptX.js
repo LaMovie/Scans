@@ -19,7 +19,7 @@ F.style.width = '90%';
 F.style.height = '35vh';
 F.style.borderRadius = '20px';
 F.style.border = '2px solid blue';
-F.style.background = 'BLACK-BOX.png';
+F.style.background = 'url(BLACK-BOX.png)';
   document.body.append(F);
   
 var D = document.createElement("div"); 
