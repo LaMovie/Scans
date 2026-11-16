@@ -197,7 +197,7 @@ body {
 }
 #Pantalla {
     border-radius: 20px; 
-    background: url(https://is.gd/L4PVt2);
+    background: url(https://lamovie.github.io/La-Movie-Delux/IMG/lamoviedejoe.jpg);
     background-size: cover;
     background-position: center;
 }
