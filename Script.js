@@ -250,7 +250,7 @@ a {
 }
 #No {
     display: none;
-    border-radius: 50px;
+    border-radius: 40px;
   &:hover {
       filter: hue-rotate(90deg);
   }
@@ -277,7 +277,7 @@ h1 {
     <ul id="Lista"></ul>
            </div>
 </section>
-<img id="No" src="https://is.gd/NjNew4"/>
+<img id="No" src="https://lamovie.github.io/La-Movie-Delux/IMG/LoEncontraremos.gif"/>
 <audio id="audio" autoplay src="https://archive.org/download/sergio-mendes-feat.-black-eyed-peas-mas-que-nada-mp-3-160-k-1/Best%20Boot%20Bass%20%28Mix%29.mp3"></audio>
   
   <audio id="AA" src="https://archive.org/download/bass-city-nany-reggae-music/PANTALLA%20EN%20NEGRO.mp3"></audio>
@@ -467,7 +467,7 @@ input {
     top: 50%;
     right: 10vw;
     transform: translateY(-50%);
-    scale: 80%;
+    scale: 130%;
 }
 </style>     
 `;        document.head.appendChild(style);
@@ -529,8 +529,8 @@ input {
 #No {
     position: fixed;
     top: 60vh;
-    right: 5vw;
-    scale: 80%;
+    right: 30vw;
+    scale: 130%;
 }
 </style>   
 `;        document.head.appendChild(style);
