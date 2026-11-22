@@ -1,5 +1,5 @@
 function construirLista() {
-var PELIS = [...TERROR, ...ACCION, ...FICCION, ...COMEDY, ...SERIES, ...ANIME, ...TV, ...PRE];
+var PELIS = [...TERROR, ...ACCION, ...FICCION, ...COMEDY, ...SERIES, ...ANIME, ...TV];
 
 var lista = document.getElementById("Lista");
   
@@ -646,8 +646,7 @@ function abrirFuera(urlDestino) {
     "https://lamovie.github.io/Buscador/GENEROS/COMEDY.js", 
     "https://lamovie.github.io/Buscador/GENEROS/SERIES.js", 
     "https://lamovie.github.io/Buscador/GENEROS/ANIME.js", 
-    "https://lamovie.github.io/Buscador/GENEROS/TV.js", 
-    "https://lamovie.github.io/Buscador/GENEROS/PRE.js"
+    "https://lamovie.github.io/Buscador/GENEROS/TV.js"
   ];
   var cargados = 0;
 
